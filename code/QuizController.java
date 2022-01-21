@@ -8,28 +8,14 @@ package com.archetype.Quiz;
 import java.util.*;
 import java.time.*;
 
-
-
-// ----------- << imports@AAAAAAF+fNVP986Uj4E= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fNVP986Uj4E= >>
-// ----------- >>
 public class QuizController extends JPanel {
-    // ----------- << attribute.annotations@AAAAAAF+fN6vN9YwAZU= >>
-    // ----------- >>
+
     private void Attribute1;
 
-    // ----------- << attribute.annotations@AAAAAAF+fN7aB9cCqGA= >>
-    // ----------- >>
     private void Attribute2;
 
-    // ----------- << attribute.annotations@AAAAAAF+fN8patjRk48= >>
-    // ----------- >>
     private void Attribute3;
 
-    // ----------- << attribute.annotations@AAAAAAF+fNfTytHiQuM= >>
-    // ----------- >>
     private QuizModel ;
 
     public void getAttribute1() {
@@ -72,18 +58,13 @@ public class QuizController extends JPanel {
         set(null);
     }
 
-    // ----------- << method.annotations@AAAAAAF+fN7jQ9dojfw= >>
-    // ----------- >>
+
     public QuizController() {
-    // ----------- << method.body@AAAAAAF+fN7jQ9dojfw= >>
-    // ----------- >>
+
     }
-    // ----------- << method.annotations@AAAAAAF+fN8EV9gKQrA= >>
-    // ----------- >>
+
     public void actionPerformed() {
-    // ----------- << method.body@AAAAAAF+fN8EV9gKQrA= >>
-    // ----------- >>
+
     }
-// ----------- << class.extras@AAAAAAF+fNVP986Uj4E= >>
-// ----------- >>
+
 }

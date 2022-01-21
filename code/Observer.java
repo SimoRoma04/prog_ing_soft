@@ -9,13 +9,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAF+fMTpTc0yPeA= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fMTpTc0yPeA= >>
-// ----------- >>
 public interface Observer {
-// ----------- << interface.extras@AAAAAAF+fMTpTc0yPeA= >>
-// ----------- >>
+
 }

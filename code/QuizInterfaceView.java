@@ -9,16 +9,8 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAF+fL/4CMz9mrk= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fL/4CMz9mrk= >>
-// ----------- >>
 public interface QuizInterfaceView {
-    // ----------- << method.annotations@AAAAAAF+fML4vs0oDx0= >>
-    // ----------- >>
+
     void updateView();
-// ----------- << interface.extras@AAAAAAF+fL/4CMz9mrk= >>
-// ----------- >>
+
 }

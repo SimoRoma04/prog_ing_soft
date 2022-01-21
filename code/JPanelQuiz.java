@@ -9,15 +9,8 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAF+fNPYVc3R3ck= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fNPYVc3R3ck= >>
-// ----------- >>
 public class JPanelQuiz extends JPanel implements QuizInterfaceView, Observer {
-    // ----------- << attribute.annotations@AAAAAAF+fNYPpM/JJlg= >>
-    // ----------- >>
+
     private QuizModel ;
 
     public QuizModel get() {
@@ -37,24 +30,17 @@ public class JPanelQuiz extends JPanel implements QuizInterfaceView, Observer {
     }
 
     @Override
-    // ----------- << method.annotations@AAAAAAF+fML4vs0oDx0= >>
-    // ----------- >>
+
     public void updateView() {
-    // ----------- << method.body@AAAAAAF+fML4vs0oDx0= >>
-    // ----------- >>
+
     }
-    // ----------- << method.annotations@AAAAAAF+fNpVhNKw1t0= >>
-    // ----------- >>
+
     public void paintComponent() {
-    // ----------- << method.body@AAAAAAF+fNpVhNKw1t0= >>
-    // ----------- >>
+
     }
-    // ----------- << method.annotations@AAAAAAF+fNpzt9MWl8g= >>
-    // ----------- >>
+
     public JPanelQuiz() {
-    // ----------- << method.body@AAAAAAF+fNpzt9MWl8g= >>
-    // ----------- >>
+
     }
-// ----------- << class.extras@AAAAAAF+fNPYVc3R3ck= >>
-// ----------- >>
+
 }

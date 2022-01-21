@@ -8,14 +8,6 @@ package com.archetype.Quiz;
 import java.util.*;
 import java.time.*;
 
-
-
-// ----------- << imports@AAAAAAF+fOKX0ODwpRw= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fOKX0ODwpRw= >>
-// ----------- >>
 public class JPanel {
-// ----------- << class.extras@AAAAAAF+fOKX0ODwpRw= >>
-// ----------- >>
+
 }

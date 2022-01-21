@@ -9,31 +9,18 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAF+fNQSns37rCw= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fNQSns37rCw= >>
-// ----------- >>
 public class QuizModel extends Observable {
-    // ----------- << method.annotations@AAAAAAF+fOBhn9u6vbU= >>
-    // ----------- >>
+
     public QuizModel() {
-    // ----------- << method.body@AAAAAAF+fOBhn9u6vbU= >>
-    // ----------- >>
+
     }
-    // ----------- << method.annotations@AAAAAAF+fOBvO9wgtbw= >>
-    // ----------- >>
+
     public void Operation2() {
-    // ----------- << method.body@AAAAAAF+fOBvO9wgtbw= >>
-    // ----------- >>
+
     }
-    // ----------- << method.annotations@AAAAAAF+fOB8eNyGHE8= >>
-    // ----------- >>
+
     public void Operation3() {
-    // ----------- << method.body@AAAAAAF+fOB8eNyGHE8= >>
-    // ----------- >>
+
     }
-// ----------- << class.extras@AAAAAAF+fNQSns37rCw= >>
-// ----------- >>
+
 }

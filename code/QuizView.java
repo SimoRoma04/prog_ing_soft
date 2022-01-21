@@ -9,23 +9,14 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAF+fMVTss1mecs= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAF+fMVTss1mecs= >>
-// ----------- >>
 public class QuizView extends JPanel implements QuizInterfaceView, Observer {
-    // ----------- << attribute.annotations@AAAAAAF+fNBnYM23OaI= >>
-    // ----------- >>
+
     private JLabel _label;
 
-    // ----------- << attribute.annotations@AAAAAAF+fNW6+M7ATxw= >>
-    // ----------- >>
+
     private QuizModel ;
 
-    // ----------- << attribute.annotations@AAAAAAF+fNe2ctGBczM= >>
-    // ----------- >>
+
     private QuizController ;
 
     public JLabel get_label() {
@@ -68,19 +59,14 @@ public class QuizView extends JPanel implements QuizInterfaceView, Observer {
         set(null);
     }
 
-    // ----------- << method.annotations@AAAAAAF+fMbOe82VvfY= >>
-    // ----------- >>
+
     public QuizView() {
-    // ----------- << method.body@AAAAAAF+fMbOe82VvfY= >>
-    // ----------- >>
+
     }
     @Override
-    // ----------- << method.annotations@AAAAAAF+fN4Wf9Ucc1c= >>
-    // ----------- >>
+
     public void updateView() {
-    // ----------- << method.body@AAAAAAF+fN4Wf9Ucc1c= >>
-    // ----------- >>
+
     }
-// ----------- << class.extras@AAAAAAF+fMVTss1mecs= >>
-// ----------- >>
+
 }
