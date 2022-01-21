@@ -8,7 +8,7 @@ package com.archetype.Quiz;
 import java.util.*;
 import java.time.*;
 
-public class QuizController extends JPanel {
+public class QuizController extends JPanel implements ActionListener{
 
     private void Attribute1;
 
@@ -17,6 +17,10 @@ public class QuizController extends JPanel {
     private void Attribute3;
 
     private QuizModel ;
+    
+    public QuizController() {
+    	
+    }
 
     public void getAttribute1() {
         return Attribute1;
@@ -59,9 +63,7 @@ public class QuizController extends JPanel {
     }
 
 
-    public QuizController() {
 
-    }
 
     public void actionPerformed() {
 
