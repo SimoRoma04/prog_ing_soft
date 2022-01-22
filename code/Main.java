@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 public class Main{
 
 	public static void main(String[] args) {
-		new JPanelQuiz();
-		System.out.println("Sto eseguedo il main");
+		new AnswerQuestion();
+		System.out.println("Sto eseguedo il main3");
 	}
 }
