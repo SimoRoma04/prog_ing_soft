@@ -4,12 +4,15 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.text.JTextComponent;
 
 public class AnswerQuestion {
 
-
-	public AnswerQuestion() {
+	TestController m_controller;
+	
+	public AnswerQuestion(TestController controller) {
 
 		// Layout Manager = Defines the natural layout for components within a container
 		
@@ -17,7 +20,10 @@ public class AnswerQuestion {
 		
 		// BorderLayout = 	A BorderLayout places components in five areas: NORTH,SOUTH,WEST,EAST,CENTER. 
 		//					All extra space is placed in the center area.
-
+		
+		m_controller = controller;
+		
+		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 600);
@@ -43,6 +49,8 @@ public class AnswerQuestion {
 		panel.get(2).setPreferredSize(new Dimension(150,100));
 		panel.get(3).setPreferredSize(new Dimension(100,200));
 		panel.get(4).setPreferredSize(new Dimension(100,100));
+		
+		panel.get(0).add(new JLabel(m_controller.getName()));
 		
 		//------------- sub panels --------------------
 		
