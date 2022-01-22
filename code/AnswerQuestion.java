@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.JTextComponent;
 
-public class AnswerQuestion {
+public class AnswerQuestion extends ViewAbs{
 
 	TestController m_controller;
 	
