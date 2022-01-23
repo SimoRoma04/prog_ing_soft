@@ -4,20 +4,16 @@ import model.Option;
 
 public class QuestionData {
 	
-	private Option option;
-	private String color;
+	private Option m_option;
+	String m_color;
 	
 	public QuestionData(Option o, String c) {
-		option = o;
-		color = c;
+		m_option = o;
+		m_color = c;
 	}
 	
 	public Option getOption() {
-		return option;
-	}
-	
-	public String getColor() {
-		return color;
+		return m_option;
 	}
 
 }
