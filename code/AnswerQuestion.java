@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 
 public class AnswerQuestion extends ViewAbs{
@@ -130,6 +131,6 @@ public class AnswerQuestion extends ViewAbs{
 		frame.add(panel.get(3),BorderLayout.SOUTH);
 		frame.add(panel.get(4),BorderLayout.CENTER);
 		
-		
+		SwingUtilities.updateComponentTreeUI(frame);
 	}
 }
