@@ -37,7 +37,7 @@ public class Controller extends ControllerAbs {
 		}
 		
 		// Carica titolo e immagine
-		m_questionText = m_course.getQuizList().get(m_currentQuestion).getName();
+		m_questionText = m_course.getQuizList().get(m_currentQuestion).getQuestion();
 		if(m_course.getQuizList().get(m_currentQuestion).getHasImage())
 			m_image = m_course.getQuizList().get(m_currentQuestion).getImage();
 		else
