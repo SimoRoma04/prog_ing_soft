@@ -22,6 +22,7 @@ import javax.swing.text.JTextComponent;
 public class AnswerQuestion extends ViewAbs{
 
 	TestController m_controller;
+	ArrayList<JButton> m_buttons;
 	
 	public AnswerQuestion(TestController controller) {
 
@@ -34,9 +35,9 @@ public class AnswerQuestion extends ViewAbs{
 		
 		m_controller = controller;
 
-
+		// Creazione della label per inserimento immagine in pannello blu (4)
 		JLabel label = new JLabel();
-		ImageIcon image2 =new ImageIcon("Effect_Aard.png");
+		ImageIcon image2 = new ImageIcon("Effect_Aard.png");
 		label.setIcon(image2);
 
 		JFrame frame = new JFrame();
@@ -44,14 +45,16 @@ public class AnswerQuestion extends ViewAbs{
 		frame.setSize(800, 600);
 		frame.setLayout(new BorderLayout(10,10));
 		frame.setVisible(true);
+		frame.setResizable(false);
 		
+		// Creazione di tutti i pannelli insieme
 		ArrayList<JPanel> panel = new ArrayList<JPanel>();
 		
 		for(int i=0; i<5; i++) {
 			panel.add(new JPanel());
 		}
 		
-		//DEBUGGING DA ELIMINARE
+		// DEBUGGING DA ELIMINARE
 		panel.get(0).setBackground(Color.red);
 		panel.get(1).setBackground(Color.green);
 		panel.get(2).setBackground(Color.yellow);
@@ -65,11 +68,11 @@ public class AnswerQuestion extends ViewAbs{
 		panel.get(3).setPreferredSize(new Dimension(100,200));
 		panel.get(4).setPreferredSize(new Dimension(100,100));
 		
-		//inserimento dell'immagine
+		// Inserimento dell'immagine
 		//ImageIcon pic = new ImageIcon("prova_img.png");
 	    
 	    //label.setIcon(pic);
-		panel.get(4).add(label);
+		panel.get(4).add(label); //panel per immagine
 		
 		//inserimento del testo della domanda dal riferimento del controller
 		panel.get(0).add(new JLabel(m_controller.getName()));
@@ -105,25 +108,27 @@ public class AnswerQuestion extends ViewAbs{
 		*/
 		//------------- sub panels --------------------
 		
-		//creazione e aggiunta bottoni con i rispettivi Action Listener
-		JButton ris1 = new JButton(m_controller.getAnswer().get(0)); //tra parantesi ci vuole il testo della domanda
-		ris1.addActionListener(e -> System.out.println("prova pulsante 1"));
-		JButton ris2 = new JButton(m_controller.getAnswer().get(1));
-		ris2.addActionListener(e -> System.out.println("prova pulsante 2")); //al posto della stringa bisogna inserire il metodo che viene invocato
-		JButton ris3 = new JButton(m_controller.getAnswer().get(2));
-		ris3.addActionListener(e -> System.out.println("prova pulsante 3"));
-		JButton ris4 = new JButton(m_controller.getAnswer().get(3));
-		ris4.addActionListener(e -> System.out.println("prova pulsante 4"));
+		// Inizializzazione dell'ArrayList dei bottoni
+		m_buttons = new ArrayList<JButton>();
 		
-		//SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
+		// Creazione di un bottone per ogni domanda
+		for (String s: m_controller.getAnswer()) {
+			JButton temp = new JButton(s);
+			temp.addActionListener(e -> System.out.println("prova pulsante" + s));  //al posto della stringa bisogna inserire il metodo che viene invocato
+			m_buttons.add(temp);
+		}
 		
-		//comandi per sistemare il layout dei pannelli
+		
+		// SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
+		
+		// Comandi per sistemare il layout dei pannelli: struttura a griglia
 		panel.get(3).setLayout(new GridLayout(2, 2, 10, 10));
 		
-		panel.get(3).add(ris1);
-		panel.get(3).add(ris2);
-		panel.get(3).add(ris3);
-		panel.get(3).add(ris4);
+		// Aggiunta automatica dei bottoni alla pagina
+		for (JButton b: m_buttons) {
+			panel.get(3).add(b);
+		}
+		
 		
 		frame.add(panel.get(0),BorderLayout.NORTH);
 		frame.add(panel.get(1),BorderLayout.WEST);
@@ -131,6 +136,7 @@ public class AnswerQuestion extends ViewAbs{
 		frame.add(panel.get(3),BorderLayout.SOUTH);
 		frame.add(panel.get(4),BorderLayout.CENTER);
 		
+		// Comando per refreshare il contenuto del frame
 		SwingUtilities.updateComponentTreeUI(frame);
 	}
 }
