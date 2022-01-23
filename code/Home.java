@@ -51,15 +51,17 @@ public class Home {
 		panel.get(4).setPreferredSize(new Dimension(100,100));
 		
 		
-		//lavoro sul pannello 3 per l'aggiunta dei tasti di inizio
+		// Lavoro sul pannello 3 per l'aggiunta dei tasti di inizio
 		JButton startButton = new JButton("START QUIZ");
 		startButton.setFont(new Font("Arial", Font.BOLD, 18));
 		
 		JButton settings = new JButton("SETTINGS");
-		
+		settings.setFont(new Font("Arial", Font.BOLD, 18));
 		
 		panel.get(3).setLayout(new GridLayout(3, 2, 10, 10));
 
+		panel.get(3).add(startButton);
+		panel.get(3).add(settings);
 		
 		
 		
