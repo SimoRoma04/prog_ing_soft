@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -105,9 +106,15 @@ public class AnswerQuestion extends ViewAbs{
 		
 		//creazione e aggiunta bottoni con i rispettivi Action Listener
 		JButton ris1 = new JButton("inserire testo della domanda"); //tra parantesi ci vuole il testo della domanda
+		ris1.addActionListener(e -> System.out.println("prova pulsante 1"));
 		JButton ris2 = new JButton("testo domanda 2");
+		ris2.addActionListener(e -> System.out.println("prova pulsante 2")); //al posto della stringa bisogna inserire il metodo che viene invocato
 		JButton ris3 = new JButton("Magari funziona");
+		ris3.addActionListener(e -> System.out.println("prova pulsante 3"));
 		JButton ris4 = new JButton("12345678901234567890123456789012345678901234567890");
+		ris4.addActionListener(e -> System.out.println("prova pulsante 4"));
+		
+		//SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
 		
 		//comandi per sistemare il layout dei pannelli
 		panel.get(3).setLayout(new GridLayout(2, 2, 10, 10));
