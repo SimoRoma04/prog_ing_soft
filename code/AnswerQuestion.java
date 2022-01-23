@@ -34,7 +34,7 @@ public class AnswerQuestion extends ViewAbs{
 		
 		m_controller = controller;
 
-
+		//creazione della label per inserimento immagine in pannello blu (4)
 		JLabel label = new JLabel();
 		ImageIcon image2 =new ImageIcon("Effect_Aard.png");
 		label.setIcon(image2);
@@ -44,7 +44,9 @@ public class AnswerQuestion extends ViewAbs{
 		frame.setSize(800, 600);
 		frame.setLayout(new BorderLayout(10,10));
 		frame.setVisible(true);
+		frame.setResizable(false);
 		
+		//creazione di tutti i pannelli insieme
 		ArrayList<JPanel> panel = new ArrayList<JPanel>();
 		
 		for(int i=0; i<5; i++) {
@@ -69,7 +71,7 @@ public class AnswerQuestion extends ViewAbs{
 		//ImageIcon pic = new ImageIcon("prova_img.png");
 	    
 	    //label.setIcon(pic);
-		panel.get(4).add(label);
+		panel.get(4).add(label); //panel per immagine
 		
 		//inserimento del testo della domanda dal riferimento del controller
 		panel.get(0).add(new JLabel(m_controller.getName()));
@@ -117,7 +119,7 @@ public class AnswerQuestion extends ViewAbs{
 		
 		//SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
 		
-		//comandi per sistemare il layout dei pannelli
+		//comandi per sistemare il layout dei pannelli: struttura a griglia
 		panel.get(3).setLayout(new GridLayout(2, 2, 10, 10));
 		
 		panel.get(3).add(ris1);
@@ -131,6 +133,7 @@ public class AnswerQuestion extends ViewAbs{
 		frame.add(panel.get(3),BorderLayout.SOUTH);
 		frame.add(panel.get(4),BorderLayout.CENTER);
 		
+		//comando per refreshare il contenuto del frame
 		SwingUtilities.updateComponentTreeUI(frame);
 	}
 }
