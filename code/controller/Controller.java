@@ -76,4 +76,11 @@ public class Controller extends ControllerAbs {
 	}
 	
 	
+	public ArrayList<QuestionData> getQuestionData() {
+		return m_questionData;
+	}
+	
+	public String getQuestionText() {
+		return m_questionText;
+	}
 }
