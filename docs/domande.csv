@@ -5,17 +5,22 @@ Cap.10 Software Modeling,di che categoria fa parte il Class Diagram?,,Structure/
 Cap.10 Software Modeling,di che categoria fa parte lo State Machine Diagram?,,Behavior/Dynamic Diagram,Structure/Static Diagram,Package Diagram,Profile Diagram
 Cap.10 Software Modeling,di che categoria fa parte lo Sequence Diagram?,,Behavior/Dynamic Diagram,Structure/Static Diagram,Package Diagram,Profile Diagram
 Cap.10 Software Modeling,di che categoria fa parte lo Activity Diagram?,,Behavior/Dynamic Diagram,Structure/Static Diagram,Package Diagram,Profile Diagram
-Cap.10 Software Modeling,cosa sono i casi d’uso?,,descrivono le funzionalità che deve svolgere il sistema,è l’intero sistema,sono coloro che intereagiscono con il sistema,non fanno parte dello Use case
-Cap.10 Software Modeling,chi sono gli attori?,,sono coloro che intereagiscono con il sistema,è l’intero sistema,descrivono le funzionalità che deve svolgere il sistema,non fanno parte dello Use case
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
+Cap.10 Software Modeling,cosa sono i casi d’uso?,,descrivono le funzionalità che deve svolgere il sistema,lÕintero sistema,sono coloro che intereagiscono con il sistema,non fanno parte dello Use case
+Cap.10 Software Modeling,chi sono gli attori?,,sono coloro che intereagiscono con il sistema,lÕintero sistema,descrivono le funzionalità che deve svolgere il sistema,non fanno parte dello Use case
+Cap.10 Software Modeling,"un meccanico fa un servizio allÕauto, durante tale servizo, potrebbe essere necassario interrompere il cambio",images/useCaseDiagram1.jpg,A,B,C,D
+Cap.10 Software Modeling,un unomo ed una donna vanno a fare una passeggiata,images/useCaseDiagram2.jpg,A,B,C,D
+Cap.10 Software Modeling,"madre e figlia preparano una cena inseme, a volte  necessario che uno di loro prenda lÕerba cipollina nellÕorto",images/useCaseDiagram3.jpg,D,A,B,C
+Cap.10 Software Modeling,quale combinazione di attori comunica con use case K?,images/useCaseDiagram4.jpg,C,A,B,D
+Cap.10 Software Modeling,quale combinazioni di attori NON comunica con lo use case E,images/useCaseDiagram5.jpg,B,A,C,D
+Cap.10 Software Modeling,lÕASSOCIAZIONE nel Class Diagram  una generalizzazione dellÕAggregazione e della Composizione,images/classDiagram1.jpg,VERO,FALSO,,
+Cap.10 Software Modeling,"nella AGGREGAZIONE seguente, se elimino B anche A viene eliminato",images/classDiagram2.jpg,FALSO,VERO,,
+Cap.10 Software Modeling,"nella COMPOSIZIONE seguente, se elimino B anche A viene eliminato",images/classDiagram3.jpg,VERO,FALSO,,
+Cap.10 Software Modeling,qual  il valore di x dopo lÕavvenimento degli eventi e4 e2 e4  e1?,images/stateMachineDiagram1.jpg,e4=3     e2=7     e4=8     e1=5,e4=3     e2=10     e4=6     e1=8,e4=5     e2=7     e4=10     e1=8,e4=3     e2=7     e4=8     e1=6
+Cap.10 Software Modeling,qual  il valore di x dopo lÕavvenimento degli eventi e1 e2 e4 e4 e6 e1?,images/stateMachineDiagram2.jpg,e1=2     e2=10     e4=11     e4=12     e6=6     e1=4,e1=3     e2=14     e4=11     e4=12     e6=6     e1=4,e1=2     e2=10     e4=14     e4=15     e6=6     e1=4,e1=2     e2=10     e4=11     e4=12     e6=6     e1=8
+Cap.10 Software Modeling,"qual  lÕultimo stato attivo, dopo lÕevento e1, e2, e10, e9 ? ",images/stateMachineDiagram3.jpg,e1=S4/S1/s1.1    e2=S1.2     e10=S5     e9=(H?)S1/S1.1       , e1=S4/S1/s1.2    e2=S1.3    e10=S5     e9=(H?)S1/S1.1  ,e1=S4/S3/s3.1    e2=S3.2     e4=S5     e9=(H?)S1/S1.1,e1=S4/S1/s1.1    e2=S1.2     e4=S3     e9=(H?)S1/S1.1
+Cap.10 Software Modeling,"dato il 1 seguente  Sequence Diagram, quali sequenze sono possibili?",images/sequenceDiagram1.jpg,a -> b -> c -> d -> e -> f -> g -> h,a -> c -> b -> d -> e -> f -> g -> h,a -> b -> c -> f -> e -> d -> g -> h,a -> b -> c -> e -> f -> d -> g -> h
+Cap.10 Software Modeling,"dato il 2 seguente  Sequence Diagram, quali sequenze sono possibili?",images/sequenceDiagram2.jpg,a -> b -> a -> b -> a -> b -> c,b-> a -> c -> b -> a -> c -> b -> a,a -> b -> c -> b -> a -> c,b -> a -> c
+Cap.10 Software Modeling,"dato il 3 seguente  Sequence Diagram, quali sequenze sono possibili?",images/sequenceDiagram3.jpg,c -> d -> a -> b -> e ,a -> b -> c -> e -> d ,a -> b -> e -> d -> c ,a -> b -> d -> c -> e 
+Cap.10 Software Modeling,"dato il 1 seguente  Active Diagram, qual  una possibile azione?",images/activityDiagram1.jpg,a -> b -> c  ,c-> b -> a ,a -> c ,a -> b
+Cap.10 Software Modeling,"dato il 2 seguente  Active Diagram, qual  una possibile azione?",images/activityDiagram2.jpg,a -> b   ,a -> b -> c  ,a -> c -> b  ,b -> a -> c
+Cap.10 Software Modeling,"dato il 3 seguente  Active Diagram, qual  una possibile azione?",images/activityDiagram3.jpg,a -> b -> d    ,a -> b -> d -> c,a -> b -> c ,a -> c -> d 
