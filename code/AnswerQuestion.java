@@ -105,13 +105,13 @@ public class AnswerQuestion extends ViewAbs{
 		//------------- sub panels --------------------
 		
 		//creazione e aggiunta bottoni con i rispettivi Action Listener
-		JButton ris1 = new JButton(controller.getAnswer().get(0)); //tra parantesi ci vuole il testo della domanda
+		JButton ris1 = new JButton(m_controller.getAnswer().get(0)); //tra parantesi ci vuole il testo della domanda
 		ris1.addActionListener(e -> System.out.println("prova pulsante 1"));
-		JButton ris2 = new JButton(controller.getAnswer().get(1));
+		JButton ris2 = new JButton(m_controller.getAnswer().get(1));
 		ris2.addActionListener(e -> System.out.println("prova pulsante 2")); //al posto della stringa bisogna inserire il metodo che viene invocato
-		JButton ris3 = new JButton(controller.getAnswer().get(2));
+		JButton ris3 = new JButton(m_controller.getAnswer().get(2));
 		ris3.addActionListener(e -> System.out.println("prova pulsante 3"));
-		JButton ris4 = new JButton(controller.getAnswer().get(3));
+		JButton ris4 = new JButton(m_controller.getAnswer().get(3));
 		ris4.addActionListener(e -> System.out.println("prova pulsante 4"));
 		
 		//SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
