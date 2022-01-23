@@ -48,7 +48,7 @@ public class Controller extends ControllerAbs {
 	}
 	
 	// Invocata alla pressione dei tasti risposta
-	private void isRight(int numTasto) {
+	public void isRight(int numTasto) {
 		
 		// Controlla se il bottone schiacciato corrisponde alla risposta corretta
 		// (se sì, aggiungi punti)
