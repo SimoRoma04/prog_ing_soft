@@ -58,9 +58,9 @@ public class Controller extends ControllerAbs {
 		// Cambia colore a tutti i tasti, in base alla correttezza del contenuto
 		for(QuestionData q: m_questionData) {
 			if(q.getOption().getIsRight())
-				q.color = "green";
+				q.m_color = "green";
 			else
-				q.color = "red";
+				q.m_color = "red";
 		}
 		
 		// Avanza il cursore della domanda corrente
