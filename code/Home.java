@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.table.AbstractTableModel;
+
+import org.knowm.xchart.XChartPanel;
+
 import javax.swing.*;
 
 public class Home {
@@ -16,10 +20,6 @@ public class Home {
 	public Home(TestController controller) {
 		m_controller = controller;
 		
-		JLabel label = new JLabel();
-		ImageIcon image2 =new ImageIcon("Effect_Aard.png");
-		label.setIcon(image2);
-		
 		int larghezza = 800;
 		int altezza = 600;
 		
@@ -27,62 +27,124 @@ public class Home {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(larghezza, altezza);
 		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setLayout(new BorderLayout(10,10));
 		frame.setVisible(true);
 		
-		ArrayList<JPanel> panel = new ArrayList<JPanel>();
-		
-		for(int i=0; i<5; i++) {
-			panel.add(new JPanel());
-		}
-		
-		//DEBUGGING DA ELIMINARE
-		panel.get(0).setBackground(Color.red);
-		panel.get(1).setBackground(Color.green);
-		panel.get(2).setBackground(Color.yellow);
-		panel.get(3).setBackground(Color.magenta);
-		panel.get(4).setBackground(Color.blue);
-		
-				
-		panel.get(0).setPreferredSize(new Dimension(100,100));
-		panel.get(1).setPreferredSize(new Dimension(150,100));
-		panel.get(2).setPreferredSize(new Dimension(150,100));
-		panel.get(3).setPreferredSize(new Dimension(100,200));
-		panel.get(4).setPreferredSize(new Dimension(100,100));
+		//prova creazione frame con tabella scrollabile
 		
 		
-		// Lavoro sul pannello 3 per l'aggiunta dei tasti di inizio
-		JButton startButton = new JButton("START QUIZ");
-		startButton.setFont(new Font("Arial", Font.BOLD, 18));
+		///costruzione della Jtable
+		String columnName = "ARGOMENTI";
+		Object[][] data = {
+				{"CAP1: ingegneria acrobatica"},
+				{"CAP2: ignoransa"},
+				{"CAP3: come non fare un progetto"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"},
+				{"CAP2: ignoransa"}
+		};
 		
-		JButton settings = new JButton("SETTINGS");
-		settings.setFont(new Font("Arial", Font.BOLD, 18));
+		String[] coloumnNames = {"INGEGNERIA DEL SOFTWARE"};
 		
-		panel.get(3).setLayout(new GridLayout(3, 2, 10, 10));
+		JTable table = new JTable(data, coloumnNames){
+			public boolean isCellEditable(int rowIndex, int colIndex) {
+				return false; //Disabilitare la modifica della JTable
+				}
+			};
+			
+        table.setPreferredScrollableViewportSize(new Dimension(60, 60));
+        table.setFillsViewportHeight(true);
+        table.setRowHeight(30);
+        table.setFont(new Font("Roboto", 5, 15));
 
-		panel.get(3).add(startButton);
-		panel.get(3).add(settings);
+        
+//PANNELLO DI DESTRA
+		
+        JSubPanel panel_dx =new JSubPanel();
+        //JPanel panel_dx = new JPanel();
+		panel_dx.setLayout(new BorderLayout());
+		panel_dx.setPreferredSize(new Dimension(larghezza/3, altezza));
+		
+		//aggiungo al pannello centrale un pannello scrollabile
+        //costruzione del pannello scorribile
+		JScrollPane panel_dx_scroll = new JScrollPane(table);
+		panel_dx.add(panel_dx_scroll,BorderLayout.CENTER);
+		panel_dx.addSubPanels(panel_dx_scroll, 70, 25);
+
+		//aggiungo il pannello di destra al frame
+		frame.add(panel_dx, BorderLayout.EAST);
+
+//PANNELLO DI SINISTRA
+		JPanel panel_sx = new JPanel();
+		panel_sx.setLayout(new BorderLayout());
+		panel_sx.setPreferredSize(new Dimension(larghezza*2/3, altezza));
+        
+		//sottopannello di sx alto
+		JSubPanel panel_sx_up =new JSubPanel();
+        //JPanel panel_dx = new JPanel();
+		panel_sx_up.setLayout(new BorderLayout());
+		panel_sx_up.setPreferredSize(new Dimension(larghezza*2/3, altezza/2));
+		
+		//aggiungo al pannello centrale un pannello scrollabile
+        //costruzione del pannello scorribile
+		JPanel pannelloGrafico = new JPanel();
+		JPanel chartPanel = new XChartPanel(new BarChartHome().getChart());
+		panel_sx_up.addSubPanels(chartPanel, 25, 25);
+		
+
+		//aggiungo il pannello di destra al frame
+		panel_sx.add(panel_sx_up, BorderLayout.NORTH);
+			
+		//sottopannello sx basso
+		JSubPanel panel_sx_down =new JSubPanel();
+        //JPanel panel_dx = new JPanel();
+		panel_sx_down.setLayout(new BorderLayout());
+		panel_sx_down.setPreferredSize(new Dimension(larghezza*2/3, altezza/2));
+		
+        //pannello per i bottoni
+		JPanel pannelloBottoni = new JPanel();
+		pannelloBottoni.setLayout(new GridLayout(2, 2, 10, 30));
+		
+		JButton startButton = new JButton("START QUIZ");
+		startButton.addActionListener(e -> System.out.println("prova pulsante START"));
+		pannelloBottoni.add(startButton);
+		
+		JButton setButton = new JButton("SETTINGS");
+		setButton.addActionListener(e -> System.out.println("prova pulsante SET"));
+		pannelloBottoni.add(setButton);
 		
 		
+		panel_sx_down.addSubPanels(pannelloBottoni, 60, 70);
+
+		//aggiungo il pannello di destra al frame
+		panel_sx.add(panel_sx_down, BorderLayout.SOUTH);
 		
+		//aggiungo i due sotto pannellia sinistro e lo centro a west
+		frame.add(panel_sx, BorderLayout.WEST);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		frame.add(panel.get(0),BorderLayout.NORTH);
-		frame.add(panel.get(1),BorderLayout.WEST);
-		frame.add(panel.get(2),BorderLayout.EAST);
-		frame.add(panel.get(3),BorderLayout.SOUTH);
-		frame.add(panel.get(4),BorderLayout.CENTER);
-		
+		//comando per refreshare la view
 		SwingUtilities.updateComponentTreeUI(frame);
+		
 	}
 	
 }
+
