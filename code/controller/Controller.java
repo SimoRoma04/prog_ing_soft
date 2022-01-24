@@ -1,5 +1,8 @@
 package controller;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import model.Course;
@@ -27,13 +30,13 @@ public class Controller extends ControllerAbs {
 		loadQuestions();
 	}
 	
-	private void loadQuestions() {
+	public void loadQuestions() {
 		ArrayList<QuestionData> temp = new ArrayList<QuestionData>();
 		
 		// Problema: non funziona se la lista è vuota
 		// Carica le opzioni per la domanda corrente
 		for(Option o: m_course.getQuizList().get(m_currentQuestion).getOptions()) {
-			temp.add(new QuestionData(o, "grey"));
+			temp.add(new QuestionData(o, Color.GRAY));
 		}
 		
 		// Carica titolo e immagine
@@ -58,9 +61,9 @@ public class Controller extends ControllerAbs {
 		// Cambia colore a tutti i tasti, in base alla correttezza del contenuto
 		for(QuestionData q: m_questionData) {
 			if(q.getOption().getIsRight())
-				q.m_color = "green";
+				q.m_color = Color.GREEN;
 			else
-				q.m_color = "red";
+				q.m_color = Color.RED;
 		}
 		
 		// Avanza il cursore della domanda corrente
@@ -83,4 +86,19 @@ public class Controller extends ControllerAbs {
 	public String getQuestionText() {
 		return m_questionText;
 	}
+	
+	public int getScore() {
+		return m_gameScore;
+	}
+	
+	public Image getImage() {
+		return m_image;
+	}
+	
+	// Invocato dalla view per ottenere le domande
+	public ArrayList<QuestionData> getAnswer() {
+		return m_questionData;
+	}
+	
+
 }
