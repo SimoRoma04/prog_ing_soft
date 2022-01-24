@@ -22,7 +22,7 @@ public class CsvParser {
 			
 			String line;
 			while((line = br.readLine()) != null) {
-				String chapter, question, image, rightOption;
+				String chapter, question, image;
 				Boolean hasImage;
 				ArrayList<Option> options = new ArrayList<Option>();
 				
