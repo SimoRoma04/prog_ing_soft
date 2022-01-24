@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -19,19 +20,17 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 
+import controller.Controller;
+import controller.QuestionData;
+
 public class AnswerQuestion extends ViewAbs{
 
-	TestController m_controller;
+	Controller m_controller;
 	ArrayList<JButton> m_buttons;
+	JFrame frame;
 	
-	public AnswerQuestion(TestController controller) {
+	public AnswerQuestion(Controller controller) {
 
-		// Layout Manager = Defines the natural layout for components within a container
-		
-		// 3 common managers
-		
-		// BorderLayout = 	A BorderLayout places components in five areas: NORTH,SOUTH,WEST,EAST,CENTER. 
-		//					All extra space is placed in the center area.
 		
 		m_controller = controller;
 
@@ -40,7 +39,7 @@ public class AnswerQuestion extends ViewAbs{
 		ImageIcon image2 = new ImageIcon("Effect_Aard.png");
 		label.setIcon(image2);
 
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 600);
 		frame.setLayout(new BorderLayout(10,10));
@@ -77,49 +76,9 @@ public class AnswerQuestion extends ViewAbs{
 		//inserimento del testo della domanda dal riferimento del controller
 		panel.get(0).add(new JLabel(m_controller.getName()));
 		
-		//------------- sub panels --------------------
-		/*
-		ArrayList<JPanel> subPanel = new ArrayList<JPanel>();
-		
-			for(int i=0; i<5; i++) {
-				subPanel.add(new JPanel());
-			}
-		
-		
-		subPanel.get(0).setBackground(Color.black);
-		subPanel.get(1).setBackground(Color.darkGray);
-		subPanel.get(2).setBackground(Color.gray);
-		subPanel.get(3).setBackground(Color.lightGray);
-		subPanel.get(4).setBackground(Color.white);
-		
-		panel.get(4).setLayout(new BorderLayout());
-		
-		for(int i=0; i<5; i++) {
-			subPanel.get(i).setPreferredSize(new Dimension(50,50));
-		}
-		
-		
-		
-		panel.get(3).add(subPanel.get(0),BorderLayout.NORTH);
-		panel.get(3).add(subPanel.get(1),BorderLayout.SOUTH);
-		panel.get(3).add(subPanel.get(2),BorderLayout.WEST);
-		panel.get(3).add(subPanel.get(3),BorderLayout.EAST);
-		panel.get(3).add(subPanel.get(4),BorderLayout.CENTER);
-		*/
-		//------------- sub panels --------------------
-		
 		// Inizializzazione dell'ArrayList dei bottoni
 		m_buttons = new ArrayList<JButton>();
-		
-		// Creazione di un bottone per ogni domanda
-		for (String s: m_controller.getAnswer()) {
-			JButton temp = new JButton(s);
-			temp.addActionListener(e -> System.out.println("prova pulsante" + s));  //al posto della stringa bisogna inserire il metodo che viene invocato
-			m_buttons.add(temp);
-		}
-		
-		
-		// SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
+		addButtons();
 		
 		// Comandi per sistemare il layout dei pannelli: struttura a griglia
 		panel.get(3).setLayout(new GridLayout(2, 2, 10, 10));
@@ -139,4 +98,56 @@ public class AnswerQuestion extends ViewAbs{
 		// Comando per refreshare il contenuto del frame
 		SwingUtilities.updateComponentTreeUI(frame);
 	}
+	
+	// Creazione di un bottone per ogni domanda
+	public void addButtons() {
+		for (QuestionData q: m_controller.getAnswer()) {
+			JButton temp = new JButton(q.getOption().getText());
+			temp.setBackground(q.getColor());
+			temp.setOpaque(true);
+			temp.setBorderPainted(false);
+			temp.addActionListener(new ButtonListener(m_controller.getAnswer().indexOf(q)));  
+			m_buttons.add(temp);
+		}
+	}
+	
+	// Disattivazione bottoni
+	public void deactivateButtons() {
+		for(JButton b: m_buttons) {
+			b.setEnabled(false);
+		}
+	}
+	
+	// Cancellazione di tutti i bottoni delle risposte
+	public void emptyButtons() {
+		m_buttons.clear();
+	}
+	
+	// Refresh dell'interfaccia
+	public void refreshUI() {
+		m_buttons.clear();
+		addButtons();
+	}
+	 
+	// ActionListener per i tasti
+	public class ButtonListener implements ActionListener {
+			
+			private int m_number;
+			
+			public ButtonListener(int number) {
+				m_number = number;
+			}
+	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				m_controller.isRight(m_number);
+				refreshUI();
+				m_controller.loadQuestions();
+				refreshUI();
+			}
+			
+		}
+	
+	
+	
 }
