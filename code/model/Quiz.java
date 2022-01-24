@@ -1,51 +1,50 @@
 package model;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 public class Quiz {
-	private String name = null;
-	private boolean hasImage = false;
-	private String chapter = null;
-	private String question = null;
-	private ArrayList<Option> options = null;
-	private Image image = null;
 	
-	//methods
-	public String getName() {
-		return name;
+	private String m_chapter = null;
+	private String m_question = null;
+	private boolean m_hasImage = false;
+	private Image m_image = null;
+	private ArrayList<Option> m_options = null;
+	
+	public Quiz(String chapter, String question, Boolean hasImage, String image, ArrayList<Option> options) {
+		m_chapter = chapter;
+		m_question = question;
+		m_hasImage = hasImage;
+		
+		if(hasImage)
+			m_image = new Image(image, new ImageIcon(image));
+		else
+			m_image = new Image();
+		
+		m_options = options;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
+
 	public boolean getHasImage() {
-		return hasImage;
+		return m_hasImage;
 	}
-	public void setHasImage(boolean hasImage) {
-		this.hasImage = hasImage;
-	}
++
 	public String getChapter() {
-		return chapter;
+		return m_chapter;
 	}
-	public void setChapter(String chapter) {
-		this.chapter = chapter;
-	}
+
 	public String getQuestion() {
-		return question;
+		return m_question;
 	}
-	public void setQuestion(String question) {
-		this.question = question;
-	}
+
 	public ArrayList<Option> getOptions() {
-		return options;
+		return m_options;
 	}
-	public void setOptions(ArrayList<Option> options) {
-		this.options = options;
-	}
+
 	public Image getImage() {
-		return image;
+		return m_image;
 	}
-	public void setImage(Image image) {
-		this.image = image;
-	}
+
 
 	
 
