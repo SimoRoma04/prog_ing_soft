@@ -28,7 +28,7 @@ public class Quiz {
 	public boolean getHasImage() {
 		return m_hasImage;
 	}
-+
+
 	public String getChapter() {
 		return m_chapter;
 	}
