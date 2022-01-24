@@ -1,5 +1,6 @@
 package controller;
 
+
 public abstract class ControllerAbs {
 	
 	private String m_name;
@@ -11,4 +12,5 @@ public abstract class ControllerAbs {
 	public String getName() {
 		return m_name;
 	}
+
 }
