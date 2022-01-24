@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.table.AbstractTableModel;
+
+import org.knowm.xchart.XChartPanel;
+
 import javax.swing.*;
 
 public class Home {
@@ -23,7 +26,7 @@ public class Home {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(larghezza, altezza);
-		//frame.setResizable(false);
+		frame.setResizable(false);
 		frame.setResizable(true);
 		frame.setLayout(new BorderLayout(10,10));
 		frame.setVisible(true);
@@ -68,7 +71,7 @@ public class Home {
 				}
 			};
 			
-        table.setPreferredScrollableViewportSize(new Dimension(50, 70));
+        table.setPreferredScrollableViewportSize(new Dimension(60, 60));
         table.setFillsViewportHeight(true);
         table.setRowHeight(30);
         table.setFont(new Font("Roboto", 5, 15));
@@ -85,7 +88,7 @@ public class Home {
         //costruzione del pannello scorribile
 		JScrollPane panel_dx_scroll = new JScrollPane(table);
 		panel_dx.add(panel_dx_scroll,BorderLayout.CENTER);
-		panel_dx.addSubPanels(panel_dx_scroll, 50, 50);
+		panel_dx.addSubPanels(panel_dx_scroll, 70, 25);
 
 		//aggiungo il pannello di destra al frame
 		frame.add(panel_dx, BorderLayout.EAST);
@@ -104,7 +107,9 @@ public class Home {
 		//aggiungo al pannello centrale un pannello scrollabile
         //costruzione del pannello scorribile
 		JPanel pannelloGrafico = new JPanel();
-		panel_sx_up.addSubPanels(pannelloGrafico, 70, 70);
+		JPanel chartPanel = new XChartPanel(new BarChartHome().getChart());
+		panel_sx_up.addSubPanels(chartPanel, 25, 25);
+		
 
 		//aggiungo il pannello di destra al frame
 		panel_sx.add(panel_sx_up, BorderLayout.NORTH);
@@ -115,10 +120,20 @@ public class Home {
 		panel_sx_down.setLayout(new BorderLayout());
 		panel_sx_down.setPreferredSize(new Dimension(larghezza*2/3, altezza/2));
 		
-		//aggiungo al pannello centrale un pannello scrollabile
-        //costruzione del pannello scorribile
+        //pannello per i bottoni
 		JPanel pannelloBottoni = new JPanel();
-		panel_sx_down.addSubPanels(pannelloBottoni, 70, 70);
+		pannelloBottoni.setLayout(new GridLayout(2, 2, 10, 30));
+		
+		JButton startButton = new JButton("START QUIZ");
+		startButton.addActionListener(e -> System.out.println("prova pulsante START"));
+		pannelloBottoni.add(startButton);
+		
+		JButton setButton = new JButton("SETTINGS");
+		setButton.addActionListener(e -> System.out.println("prova pulsante SET"));
+		pannelloBottoni.add(setButton);
+		
+		
+		panel_sx_down.addSubPanels(pannelloBottoni, 60, 70);
 
 		//aggiungo il pannello di destra al frame
 		panel_sx.add(panel_sx_down, BorderLayout.SOUTH);
