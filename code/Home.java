@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.*;
 
 public class Home {
 
@@ -62,17 +61,6 @@ public class Home {
 
 		panel.get(3).add(startButton);
 		panel.get(3).add(settings);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
