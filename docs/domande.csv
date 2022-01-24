@@ -5,17 +5,107 @@ Cap.10 Software Modeling,di che categoria fa parte il Class Diagram?,,Structure/
 Cap.10 Software Modeling,di che categoria fa parte lo State Machine Diagram?,,Behavior/Dynamic Diagram,Structure/Static Diagram,Package Diagram,Profile Diagram
 Cap.10 Software Modeling,di che categoria fa parte lo Sequence Diagram?,,Behavior/Dynamic Diagram,Structure/Static Diagram,Package Diagram,Profile Diagram
 Cap.10 Software Modeling,di che categoria fa parte lo Activity Diagram?,,Behavior/Dynamic Diagram,Structure/Static Diagram,Package Diagram,Profile Diagram
-Cap.10 Software Modeling,cosa sono i casi díuso?,,descrivono le funzionalit‡ che deve svolgere il sistema,Ë líintero sistema,sono coloro che intereagiscono con il sistema,non fanno parte dello Use case
-Cap.10 Software Modeling,chi sono gli attori?,,sono coloro che intereagiscono con il sistema,Ë líintero sistema,descrivono le funzionalit‡ che deve svolgere il sistema,non fanno parte dello Use case
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
-Cap.10 Software Modeling,,,,,,
+Cap.10 Software Modeling,cosa sono i casi díuso?,,descrivono le funzionalit‡ che deve svolgere il sistema,l’intero sistema,sono coloro che intereagiscono con il sistema,non fanno parte dello Use case
+Cap.10 Software Modeling,chi sono gli attori?,,sono coloro che intereagiscono con il sistema,l’intero sistema,descrivono le funzionalit‡ che deve svolgere il sistema,non fanno parte dello Use case
+Cap.10 Software Modeling,"un meccanico fa un servizio all’auto, durante tale servizo, potrebbe essere necassario interrompere il cambio",images/useCaseDiagram1.jpg,A,B,C,D
+Cap.10 Software Modeling,un unomo ed una donna vanno a fare una passeggiata,images/useCaseDiagram2.jpg,A,B,C,D
+Cap.10 Software Modeling,"madre e figlia preparano una cena inseme, a volte è necessario che uno di loro prenda l’erba cipollina nell’orto",images/useCaseDiagram3.jpg,D,A,B,C
+Cap.10 Software Modeling,quale combinazione di attori comunica con use case K?,images/useCaseDiagram4.jpg,C,A,B,D
+Cap.10 Software Modeling,quale combinazioni di attori NON comunica con lo use case E,images/useCaseDiagram5.jpg,B,A,C,D
+Cap.10 Software Modeling,l’ASSOCIAZIONE nel Class Diagram è una generalizzazione dell’Aggregazione e della Composizione,images/classDiagram1.jpg,VERO,FALSO,,
+Cap.10 Software Modeling,"nella AGGREGAZIONE seguente, se elimino B anche A viene eliminato",images/classDiagram2.jpg,FALSO,VERO,,
+Cap.10 Software Modeling,"nella COMPOSIZIONE seguente, se elimino B anche A viene eliminato",images/classDiagram3.jpg,VERO,FALSO,,
+Cap.10 Software Modeling,qual è il valore di x dopo l’avvenimento degli eventi e4 e2 e4  e1?,images/stateMachineDiagram1.jpg,e4=3     e2=7     e4=8     e1=5,e4=3     e2=10     e4=6     e1=8,e4=5     e2=7     e4=10     e1=8,e4=3     e2=7     e4=8     e1=6
+Cap.10 Software Modeling,qual è il valore di x dopo l’avvenimento degli eventi e1 e2 e4 e4 e6 e1?,images/stateMachineDiagram2.jpg,e1=2     e2=10     e4=11     e4=12     e6=6     e1=4,e1=3     e2=14     e4=11     e4=12     e6=6     e1=4,e1=2     e2=10     e4=14     e4=15     e6=6     e1=4,e1=2     e2=10     e4=11     e4=12     e6=6     e1=8
+Cap.10 Software Modeling,"qual è l’ultimo stato attivo, dopo l’evento e1, e2, e10, e9 ? ",images/stateMachineDiagram3.jpg,e1=S4/S1/s1.1    e2=S1.2     e10=S5     e9=(H?)S1/S1.1       , e1=S4/S1/s1.2    e2=S1.3    e10=S5     e9=(H?)S1/S1.1  ,e1=S4/S3/s3.1    e2=S3.2     e4=S5     e9=(H?)S1/S1.1,e1=S4/S1/s1.1    e2=S1.2     e4=S3     e9=(H?)S1/S1.1
+Cap.10 Software Modeling,"dato il 1 seguente  Sequence Diagram, quali sequenze sono possibili?",images/sequenceDiagram1.jpg,a -> b -> c -> d -> e -> f -> g -> h,a -> c -> b -> d -> e -> f -> g -> h,a -> b -> c -> f -> e -> d -> g -> h,a -> b -> c -> e -> f -> d -> g -> h
+Cap.10 Software Modeling,"dato il 2 seguente  Sequence Diagram, quali sequenze sono possibili?",images/sequenceDiagram2.jpg,a -> b -> a -> b -> a -> b -> c,b-> a -> c -> b -> a -> c -> b -> a,a -> b -> c -> b -> a -> c,b -> a -> c
+Cap.10 Software Modeling,"dato il 3 seguente  Sequence Diagram, quali sequenze sono possibili?",images/sequenceDiagram3.jpg,c -> d -> a -> b -> e ,a -> b -> c -> e -> d ,a -> b -> e -> d -> c ,a -> b -> d -> c -> e 
+Cap.10 Software Modeling,"dato il 1 seguente  Active Diagram, qual è una possibile azione?",images/activityDiagram1.jpg,a -> b -> c  ,c-> b -> a ,a -> c ,a -> b
+Cap.10 Software Modeling,"dato il 2 seguente  Active Diagram, qual è una possibile azione?",images/activityDiagram2.jpg,a -> b   ,a -> b -> c  ,a -> c -> b  ,b -> a -> c
+Cap.10 Software Modeling,"dato il 3 seguente  Active Diagram, qual è una possibile azione?",images/activityDiagram3.jpg,a -> b -> d    ,a -> b -> d -> c,a -> b -> c ,a -> c -> d 
+,,,,,,
+Cap.1 Introduzione,Ingegneria del software e’ una disciplina che si occupa di gestire lo sviluppo del software,,VERO,FALSO,,
+Cap.1 Introduzione,differenza tra programming vs software engineering,,"programming = small project, software engineering = huge project","programming = costly, software engineering = cheap","programming = long-lived, software engineering =short-lived","programming = teams, software engineering =you"
+Cap.1 Introduzione,quali sono le fasi dello sviluppo del software,,"requisiti ingegneristici, design, implementazione, testing, manutenzione","requisiti ingegneristici, design, implementazione, budget","design, implementazione, manutenzione, osservazione","requisiti ingegneristici, design, testing, manutenzione, abc"
+,,,,,,
+Cap.2 Software Management,cos’è il project plan?,,documento per guidare sia l’esecuzione che il controllo del progetto,un programma che crea progetti,un libro su come si creano i progetti,un libro su come creare dei programmi
+Cap.2 Software Management,nel Project Control quali sono le principali situazioni da gestire?,,"tempo, informazione, organizzazione, qualita’, soldi",esclusivamente tempo e soldi. Il tempo e’ denaro…,esclusivamente informazione ed organizzazione,solo la qualita’
+,,,,,,
+Cap.3 Software Life Cycle,su cosa sono basati i modelli tradizionali?,,basata sui documenti,basata sulle persone,basata sui costi,basata sul tempo
+Cap.3 Software Life Cycle,il modello 1 rappresentato in figura prende il nome di..,images/softwareLifeCycle1.jpg,waterfall,v-model,spiral model,lava model
+Cap.3 Software Life Cycle,il modello 2 rappresentato in figura prende il nome di..,images/softwareLifeCycle2.jpg,v-model,waterfall,spiral model,lava model
+Cap.3 Software Life Cycle,identificare in anticipo tutti i requisiti e’ un’attivita’ semplice,,FALSO,VERO,,
+Cap.3 Software Life Cycle,lo Spiral model e’ un waterfall incrementale,,VERO,FALSO,,
+Cap.3 Software Life Cycle,AGILE non considera importante l’interazione con il cliente,,FALSO,VERO,,
+Cap.3 Software Life Cycle,quale delle seguenti informazioni su AGILE e’ falsa,,arrivati ad una fase di sviluppo non si torman mai indietro,Il cliente e’ piu’ integrato nel processo di sviluppo del software,interazioni tra individui piu’ importanti dei processi e strumenti,rispondere ai cambiamenti > seguire un piano rigido
+Cap.3 Software Life Cycle,nell’AGILE il prototyping..,,e’ usato per ottenere requisiti referiti a certi aspetti del sistema,deve essere molto dispendioso,deve implementare tutte le funzionalita’ ,non segue il modello waterfall
+Cap.3 Software Life Cycle,XP-Extreme Programming e’,,un AGILE portato all’estremo,un waterfall portato all’estremo,un lava model portato all’estremo,v model portato all’estremo
+Cap.3 Software Life Cycle,lo SCRUM e’ una metodologia AGILE,,VERO,FALSO,,
+Cap.3 Software Life Cycle,cos’e’ uno Sprint?,,tempo a disposizione dal team di sviluppo per terminare il task assegnato,e’ un insieme di attivita’,tempo per stilare un documento di requisiti,un insieme di task che il team di sviluppo deve svolgere
+Cap.3 Software Life Cycle,cos’e’ il RUP,,"Rational unified process, metodo simile al waterfall basato su UML","Rational unified process, metodo simile ad AGILE basato su UML",e’ uno strumento per verificare i test,e’ una dashboard che controllo il costo di ogni attivita’
+Cap.3 Software Life Cycle,SPL sta per..,,Software Product Lines,Software Programming Language,Smart Product Lines,Smart Programming Language
+Cap.3 Software Life Cycle,cosa si intende per Process Modeling,,descrivere il processo di sviluppo del SW in forma di programma,gestire il cambiamento dei processi aziendali,monitorare i processi aziendali,gestire i processi di sviluppo del SW
+,,,configuration control board,change request commitee,work control board,manager
+Cap.4 Configuration Management,cos’e’ la baseline?,,il punto di riferimento dello sviluppo del sfotware,e’ l’infrastruttura del programma,e’ il tempo totale per lo sviluppo del progetto,e’ la prima riga di codice
+Cap.4 Configuration Management,cos’e’ il CCB,,"Configuration Control Board, autorizza i cambiamenti della baseline","Configuration Control Base, autorizza i cambiamenti della baseline","Configuration Central Base, si occupa della baseline","Central Control Board, autorizza i cambiamenti della baseline"
+Cap.4 Configuration Management,qual è il gruppo che si occupa di gestire le modifiche?,,,,,
+Cap.4 Configuration Management,cosa si intende per change request?,,e’ ogni risposta di modifica rispetto alla baseline,e’ una richiesta di cambio di ruolo nella fase di sviluppo,e’ una richiesta di aumento del tempo per lo sviluppo,nessuna delle altre risposte e’ corretta
+Cap.4 Configuration Management,quando si lavora in parallelo..,,e’ necessario creare piu’ branch del progetto,lavorare solo quando nessun’altro sta lavorando,lavorare tutti sulla baseline,non lavorare
+Cap.4 Configuration Management,come si chiama il documento che racchiude le informazioni sul configuration management,,configuration management plan,configuration management document,configuration plan,configuration document
+,,,,,,
+Cap.5 People Management,sono le persone che si devono adattare ai task e non viceversa?,,FALSO,VERO,,
+Cap.5 People Management,quale nome prende l’roganizzazione in figura,images/peopleManagement1.jpg,organizzazione gerarchica,organizzazione a matrice,AGILE team,SWAT
+Cap.5 People Management,nell’organizzazione SWAT..,,i team sono di piccole dimensioni,si tende ad avere pochi gruppi ma molto grandi,una persona impartisce comandi a tutti gli altri,I meeting sono estremamente lunghi 
+Cap.5 People Management,l’interazione tra team nei progetti SCRM e’..,,molto frequente,"sempre di basso livello, con poche comunicazioni",quasi del tutto assente,"inutile, perche’ i team lavorano con ritmi diversi"
+Cap.5 People Management,"quando si gestiscono le persone, bisogna guardare nella direzione dal manager al resto del team",,FALSO,VERO,,
+Cap.5 People Management,"lo SCRUM Master si occupa team, organizzare i meeting e gli eventi…",,VERO,FALSO,,
+Cap.5 People Management,il Product Owner parla con il cliente e il relativo business e lo spiega allo SCRUM team,,VERO,FALSO,,
+,,,,,,
+Cap.6 Software Quality,il concetto di qualita’ puo’ essere aggiunto in un secondo momento ad un progetto software,,FALSO,VERO,,
+Cap.6 Software Quality,nella definizione di qualita’ e’ necessario considerare fattori:,,interni ed esterni,interni e del cliente,di utilizzo e di costo,esterni e del cliente
+Cap.6 Software Quality,quale dei seguenti aspetti non rappresenta una qualita’ del software,,prezzo,correttezza,usabilita’,testabilita’
+Cap.6 Software Quality,la ISO 9001 e’ una norma specifica per i processi software,,FALSO,VERO,,
+Cap.6 Software Quality,quale dei seguenti non  e’ un modello contenuto nel capability maturity model (CMM),,middle level,initial level,optimizing level,quantitatively managed level
+Cap.6 Software Quality,avere un processo di qualita’ NON assicura avere un software di qualita’,,VERO,FALSO,,
+,,,,,,
+Cap.9 Requirements Engineering ,i requisisti si dividono in:,,funzionali e non funzionali,utili e inutili,richiesti e implementati,nessuna delle altre risposte e’ corretta
+Cap.9 Requirements Engineering ,il linguaggio naturale e’ sempre la migliore scelta per le fasi di Requirements Engineering,,FALSO,VERO,,
+Cap.9 Requirements Engineering ,non e’ importante che ogni requisito sia identificabile per tracciabilita’,,FALSO,VERO,,
+Cap.9 Requirements Engineering ,quale dei seguenti non fa parte degli step principali del Requirements Engineering,,qualificazione,elitizione,specificazione,validazione
+Cap.9 Requirements Engineering ,quale dei seguenti metodi NON possono essere utili nella fase di elicitation,,"ispezione dei requisiti per verificare correttezza, completezza",interviste,analisi di scenari,analisi di descrizioni in linguaggio naturale
+Cap.9 Requirements Engineering ,cosa significa quando si decide di utilizzare dei COTS,,si utilizzano componenti commerciali gia’ sviluppati da altri,si sceglie di sviluppare ogni singolo componente del sistema,si sceglie di sviluppare solo un componente del sistema,nessuna delle altre risposte e’ corretta
+Cap.9 Requirements Engineering ,"MUST HAVE, SHOULD HAVE, COULD HAVE, WON’T HAVE  si riferiscono alle",,priorita’ dei requisiti di Moscow,priorita’ dei requisiti di Kano,priorita’ dei requisiti di Andrew,nessuna delle altre risposte e’ corretta
+Cap.9 Requirements Engineering ,quale e’ lo standard che si utilizza per la fase di Requiremets Specification,,IEEE 830,IEEE 3070,IEEE 950,IEEE 9001
+Cap.9 Requirements Engineering ,V e V sta per,,verifica e validazione,vendita e valore,validazione e vendita,verifica e vendita
+,,,,,,
+Cap.11 Software Architecture,quale delle seguenti NON rientra nella definizione di architettuta software,,l’architettura non e’ l’organizzazione fondamentale di un sistema,l’architettetura e’ design di alto livello,l’architettura e’ la struttura complessiva del sistema,l’architettura e’ componenti e connettori
+Cap.11 Software Architecture, e’ importante documentare le decisioni architetturali,,VERO,FALSO,,
+Cap.11 Software Architecture,quale dei seguenti NON fa parte della architectural view di Bass,,process viewpoint,model view,componenti e connettori,allocation view
+Cap.11 Software Architecture,quale dei seguenti NON fa parte dei tipi di componenti nel Architectural Style,,procedure call,computazionali,manager,controller
+Cap.11 Software Architecture,quale dei seguenti NON fa parte dei tipi di connettori nel Architectural Style,,memoria,pocedure call,shared data,data flow
+Cap.11 Software Architecture,quale dei seguenti NON e’ uno stile di architettura,,scenarios style,mvc style,repository style,Implicit-invocation style
+,,,,,,
+Cap.12 Software Design,in una buona progettazione software vi e’,,un’alta coesione e un basso accoppiamento ,un alto accoppiamento e un’alta coesione,una bassa coesione e un basso accoppiamento,una bassa coesione e un alto accoppiamento
+Cap.12 Software Design,la coesione e’ la misura in cui gli elementi del modulo sono funzionalmente correlati,,VERO,FALSO,,
+Cap.12 Software Design,l’accoppiamento e la misura del grado di interdipendenza tra moduli,,VERO,FALSO,,
+Cap.12 Software Design,quale delle 2 figure ha una buona modularita’,images/softwareDesign1.jpg,Figura 2,Figura 1,entrambe ,
+Cap.12 Software Design,nel software design ci sono 2 tipi di complessita’,,intramodulare e itermodulare,funzionale e non funzionale,relativa e assoluta,razionale e irrazionale
+Cap.12 Software Design,quale delle seguenti immagini rappresenta una migliore interconnesione tra i moduli,images/softwareDesign2.jpg,tree,strict hierarchy,hierarchy,chaos
+Cap.12 Software Design,"nel Depth of Inheritance tree, si vuole una collezione di eredita’ con un’altezza media",,,,,
+Cap.12 Software Design,"nel OO design method, quali dei seguenti non e’ un passo del metodo Booch",,identificare i costi del design,identificare classi e oggeti,identificare relazioni tra classi ed oggeti,"implementare interfacce, classi ed oggetti"
+,,,,,,
+Cap.13 Software Testing,"posporre il test e’ errore, piu’ tardi un fault viene scopert e piu’ e’ costoso fixxarlo",,VERO,FALSO,,
+Cap.13 Software Testing,il test esaustivo e’ sempre fattibile,,FALSO,VERO,,
+Cap.13 Software Testing,quale di questi non fa parte del software models,,implementazione,dimostrazione,distruzione,valutazione
+Cap.13 Software Testing,quale e’ obiettivo durante la fase di testing,,trovare piu’ errori possibili,non trovare erori,non diventare confidenti sulla affidabilita’ del SW,nessuna delle altre risposte e’ corretta
+Cap.13 Software Testing,quale delle seguenti NON rientra nelle tecniche di test,,red alarm testing,blackbox testing,coverage testing,fault testing
+Cap.13 Software Testing,cos’e il TDD,,"test driven development, sviluppo basato sui test","test domain document, documento dei casi di test","test dictionary document, documento dei vari tipi di test ","test documentation design, documento dei test design"
+Cap.13 Software Testing,"nel test documentation, il test plan e’ documento che descrive i test e gli item che devono essere testati",,VERO,FALSO,,
+,,,,,,
+Cap.14 Software Maintanance,quale di queste non rientra nelle attivita’ di manutenzione,,manutenzione selettiva,manutenzione correttiva,manutenzione adattiva,manutenzione preventiva
+Cap.14 Software Maintanance,quale tra questi NON e’ tra le principali cause di manutenzione,,insufficiente budget,codice non strutturato,insuffiente conoscenza del dominio,insuffiente documentazione
+Cap.14 Software Maintanance,il reverse engineeering non comporta nessuna modifica delle funzionalita’,,VERO,FALSO,,
+Cap.14 Software Maintanance,il reengineeering non comporta nessuna modifica delle funzionalita’,,FALSO,VERO,,
+Cap.14 Software Maintanance,il refactoring e’ una tecnica per ristruttare il codice senza modicare il comportamento esterno,,VERO,FALSO,,
+Cap.14 Software Maintanance,quale di questi non fa parte dell’organizzazione della manutenzione,,Tipo Q,tipo W,tipo A,tipo L
