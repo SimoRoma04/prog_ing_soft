@@ -1,4 +1,4 @@
-
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -6,12 +6,6 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-
-import controller.Controller;
-import model.Course;
-import model.Option;
-import model.Quiz;
-
 import javax.swing.JFrame;
 
 public class Main{
@@ -20,7 +14,6 @@ public class Main{
 		//new AnswerQuestion(new TestController("Piero"));
 		new Home(new TestController("pierino"));
 		//new AnswerQuestion(new TestController("ofnoefn"));
-
 		System.out.println("Sto eseguedo il main");
 	}
 }
