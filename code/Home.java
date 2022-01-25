@@ -11,8 +11,6 @@ import javax.swing.table.AbstractTableModel;
 
 import org.knowm.xchart.XChartPanel;
 
-import javax.swing.*;
-
 public class Home {
 
 	TestController m_controller;
@@ -140,6 +138,7 @@ public class Home {
 		
 		//aggiungo i due sotto pannellia sinistro e lo centro a west
 		frame.add(panel_sx, BorderLayout.WEST);
+
 		
 		//comando per refreshare la view
 		SwingUtilities.updateComponentTreeUI(frame);
