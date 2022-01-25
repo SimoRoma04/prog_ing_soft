@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import model.Option;
-import model.Quiz;
+import model.Question;
 
 public class CsvParser {
 	
-	static ArrayList<Quiz> parseCsv(File f) {
+	public static ArrayList<Question> parseCsv(String path) {
 		
-		ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
+		ArrayList<Question> questions = new ArrayList<Question>();
 		
 		try {
 			FileReader fr = new FileReader(f);
@@ -65,7 +65,7 @@ public class CsvParser {
 					options.add(new Option(current, false));
 				}
 				
-				quizzes.add(new Quiz(chapter, question, hasImage, image, options));
+				questions.add(new Question(chapter, question, hasImage, image, options));
 				
 			}
 			
@@ -74,7 +74,6 @@ public class CsvParser {
 			e.printStackTrace();
 		}
 		
-		return quizzes; 
-		
+		return questions;
 	}
 }

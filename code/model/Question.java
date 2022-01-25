@@ -3,17 +3,17 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-public class Quiz {
+public class Question {
 	
 	private String m_chapter = null;
-	private String m_question = null;
+	private String m_text = null;
 	private boolean m_hasImage = false;
 	private Image m_image = null;
 	private ArrayList<Option> m_options = null;
 	
-	public Quiz(String chapter, String question, Boolean hasImage, String image, ArrayList<Option> options) {
+	public Question(String chapter, String question, Boolean hasImage, String image, ArrayList<Option> options) {
 		m_chapter = chapter;
-		m_question = question;
+		m_text = question;
 		m_hasImage = hasImage;
 		
 		if(hasImage)
@@ -33,8 +33,8 @@ public class Quiz {
 		return m_chapter;
 	}
 
-	public String getQuestion() {
-		return m_question;
+	public String getText() {
+		return m_text;
 	}
 
 	public ArrayList<Option> getOptions() {
@@ -44,8 +44,10 @@ public class Quiz {
 	public Image getImage() {
 		return m_image;
 	}
-
-
 	
+	public void setImage(Image image) {
+		m_image = image;
+		return;
+	}
 
 }

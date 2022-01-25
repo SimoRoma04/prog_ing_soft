@@ -17,11 +17,11 @@ public class ImageHandler {
 	}
 	
 	
-	public void addImageToQuiz(ArrayList<Quiz> ql) {
-		for(Quiz q : ql) {
+	public void addImageToQuiz(ArrayList<Question> ql) {
+		for(Question q : ql) {
 			if(q.getHasImage()) {  //se il flag image è true
 				for(Image i : imageList) {
-					if(q.getName() == i.getName()) {
+					if(q.getText() == i.getName()) {
 						q.setImage(i);
 					}
 				}
