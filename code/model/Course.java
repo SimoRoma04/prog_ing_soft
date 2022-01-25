@@ -3,15 +3,15 @@ import java.util.ArrayList;
 
 public class Course {
 	private String name;
-	private ArrayList<Quiz> quizList;
+	private ArrayList<Question> quizList;
 	 
 	public Course(String name){
 		this.name=name;
-		quizList = new ArrayList<Quiz>();
+		quizList = new ArrayList<Question>();
 	}
 	
 	//methods
-	public ArrayList<Quiz> getQuizList(){
+	public ArrayList<Question> getQuizList(){
 		return quizList;
 	}
 	
@@ -19,11 +19,11 @@ public class Course {
 		return name;
 	}
 	
-	 public void addQuiz(Quiz q){
+	 public void addQuiz(Question q){
 		 quizList.add(q);
 	 }
 	 
-	 public void removeQuiz(Quiz q){
+	 public void removeQuiz(Question q){
 		 quizList.remove(q);
 	 }
 	 

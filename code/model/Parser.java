@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
 public class Parser {
 	ObjectMapper objectMapper = new ObjectMapper();	
 	File file = new File("prova.json");
-	ArrayList<Quiz> quizList;
+	ArrayList<Question> quizList;
 	
 	
 	public Parser() {
 		try {
-			quizList = objectMapper.readValue(file, new TypeReference<ArrayList<Quiz>>(){});
+			quizList = objectMapper.readValue(file, new TypeReference<ArrayList<Question>>(){});
 		} catch (StreamReadException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -32,8 +32,8 @@ public class Parser {
 	}
 	
 	
-	public void addParsedQuizToList(ArrayList<Quiz> ql) {
-		for(Quiz q : quizList) {
+	public void addParsedQuizToList(ArrayList<Question> ql) {
+		for(Question q : quizList) {
 			ql.add(q);
 		}
 	}
