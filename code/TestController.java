@@ -16,7 +16,7 @@ public class TestController extends ControllerAbs {
 		 ArrayList<String> domande = new ArrayList<String>();
 		 domande.add("testo domanda1");
 		 domande.add("testo domanda2");
-		 domande.add("testo domanda3");
+		 domande.add("123456789012345678901234567890123456789012345678901234567890123456789");
 		 domande.add("testo domanda4");
 		return domande;
 		

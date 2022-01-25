@@ -9,6 +9,7 @@
 	<classpathentry kind="lib" path="code/lib/jackson-annotations-2.13.1.jar"/>
 	<classpathentry kind="lib" path="code/lib/jackson-core-2.13.1.jar"/>
 	<classpathentry kind="lib" path="code/lib/jackson-databind-2.13.1.jar"/>
+	<classpathentry kind="lib" path="code/lib/xchart-3.8.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
