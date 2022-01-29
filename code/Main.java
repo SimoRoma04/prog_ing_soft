@@ -1,20 +1,3 @@
-
-
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.util.ArrayList;
-
-import javax.swing.JPanel;
-
-import controller.Controller;
-import model.Course;
-import model.Option;
-
-
-import javax.swing.JFrame;
-
 import view.Home;
 import view.TestController;
 
