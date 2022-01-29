@@ -142,8 +142,8 @@ public class AnswerQuestion implements ViewInterface{
 	}
 
 	@Override
-	public JPanel refresh() {
+	public void refresh() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 }

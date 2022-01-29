@@ -25,7 +25,7 @@ public class Home implements ViewInterface{
 	}
 	
 	@Override
-	public JPanel refresh() {
+	public void refresh() {
 		
 		int larghezza = 800;
 		int altezza = 600;
@@ -151,7 +151,7 @@ public class Home implements ViewInterface{
 		//comando per refreshare la view
 		SwingUtilities.updateComponentTreeUI(frame);
 		
-		return null;
+		return;
 	}
 	
 }
