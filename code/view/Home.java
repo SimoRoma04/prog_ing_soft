@@ -1,14 +1,13 @@
 package view;
-import java.util.ArrayList;
 import java.awt.*;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
-import javax.swing.table.AbstractTableModel;
+
 
 import org.knowm.xchart.XChartPanel;
 
