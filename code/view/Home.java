@@ -13,15 +13,18 @@ import javax.swing.table.AbstractTableModel;
 import org.knowm.xchart.XChartPanel;
 
 import adapter.GuiManagerAdapter;
+import adapter.QuizAdapter;
 
 import javax.swing.*;
 
 public class Home implements ViewInterface{
 
 	GuiManagerAdapter m_guiManagerAdapter;
+	QuizAdapter m_quizAdapter;
 	
-	public Home(GuiManagerAdapter guiManagerAdapter) {
+	public Home(GuiManagerAdapter guiManagerAdapter, QuizAdapter quizAdapter) {
 		m_guiManagerAdapter = guiManagerAdapter;
+		m_quizAdapter = quizAdapter;
 	}
 	
 	@Override
@@ -30,47 +33,23 @@ public class Home implements ViewInterface{
 		int larghezza = 800;
 		int altezza = 600;
 		
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(larghezza, altezza);
-		frame.setResizable(false);
-		frame.setResizable(true);
-		frame.setLayout(new BorderLayout(10,10));
-		frame.setVisible(true);
+		//JFrame frame = new JFrame();
 		
 		//prova creazione frame con tabella scrollabile
 		
 		
 		///costruzione della Jtable
 		String columnName = "ARGOMENTI";
-		Object[][] data = {
-				{"CAP1: ingegneria acrobatica"},
-				{"CAP2: ignoransa"},
-				{"CAP3: come non fare un progetto"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"},
-				{"CAP2: ignoransa"}
-		};
+		
 		
 		String[] coloumnNames = {"INGEGNERIA DEL SOFTWARE"};
+		
+		
+		
+		ArrayList<String> chapterList = m_quizAdapter.getChapterList();
+		
+		String[][] data = new String[1][chapterList.size()];
+		data[0] = chapterList.toArray(new String[chapterList.size()]);
 		
 		JTable table = new JTable(data, coloumnNames){
 			public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -82,7 +61,6 @@ public class Home implements ViewInterface{
         table.setFillsViewportHeight(true);
         table.setRowHeight(30);
         table.setFont(new Font("Roboto", 5, 15));
-
         
 //PANNELLO DI DESTRA
 		
@@ -98,7 +76,7 @@ public class Home implements ViewInterface{
 		panel_dx.addSubPanels(panel_dx_scroll, 70, 25);
 
 		//aggiungo il pannello di destra al frame
-		frame.add(panel_dx, BorderLayout.EAST);
+		m_guiManagerAdapter.add(panel_dx, BorderLayout.EAST);
 
 //PANNELLO DI SINISTRA
 		JPanel panel_sx = new JPanel();
@@ -146,10 +124,7 @@ public class Home implements ViewInterface{
 		panel_sx.add(panel_sx_down, BorderLayout.SOUTH);
 		
 		//aggiungo i due sotto pannellia sinistro e lo centro a west
-		frame.add(panel_sx, BorderLayout.WEST);
-		
-		//comando per refreshare la view
-		SwingUtilities.updateComponentTreeUI(frame);
+		m_guiManagerAdapter.add(panel_sx, BorderLayout.WEST);
 		
 		return;
 	}
