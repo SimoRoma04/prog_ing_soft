@@ -35,6 +35,7 @@ public class AnswerQuestion implements ViewInterface{
 		ImageIcon image2 = new ImageIcon("Effect_Aard.png");
 		label.setIcon(image2);
 
+
 		frame = new JPanel();
 		
 		// Creazione di tutti i pannelli insieme
@@ -58,6 +59,7 @@ public class AnswerQuestion implements ViewInterface{
 		panel.get(3).setPreferredSize(new Dimension(100,200));
 		panel.get(4).setPreferredSize(new Dimension(100,100));
 		
+
 		
 		// Inserimento dell'immagine (se c'è)
 		if(m_quizAdapter.getQuestion().getHasImage()) {
@@ -100,6 +102,7 @@ public class AnswerQuestion implements ViewInterface{
 		
 		this.refresh();
 		
+
 	}
 
 	@Override
