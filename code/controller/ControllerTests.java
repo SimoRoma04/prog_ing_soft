@@ -2,13 +2,14 @@ package controller;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.junit.Test;
 
 import model.Course;
 import model.Option;
-import model.Quiz;
+import model.Question;
 
 public class ControllerTests {
 
@@ -18,34 +19,26 @@ public class ControllerTests {
 		
 		Course course = new Course("Corso di Test");
 		
-		Option o = new Option();
-		o.setText("Risposta 1");
-		o.setIsRight(true);
+		Option o = new Option("Risposta 1", true);
+		
 		
 		ArrayList<Option> options = new ArrayList<Option>();
 		options.add(o);
 		
-		Quiz q = new Quiz();
-		q.setName("Domanda di prova");
-		q.setQuestion("Qual è la domanda?");
-		q.setOptions(options);
+		Question q = new Question("Capitolo 1", "Quante sono le risposte?", false, "", options);
 		course.addQuiz(q);
 		
-		/* AGGIUNGENDO QUESTO, ESEGUE MA RIMANE COMUNQUE SBAGLIATO (ALTRIMENTI NON ESEGUE NEMMENO)
-		Quiz r = new Quiz();
-		r.setName("Domanda di prova");
-		r.setQuestion("Qual è la domanda?");
-		r.setOptions(options);
+		
+		Question r = new Question("Capitolo 1", "Qual è la domanda?", false, "", options);
 		course.addQuiz(r);
-		*/
+		
 		
 		Controller controller = new Controller("Test", course);
 		
 		controller.isRight(0);
 		
-		// Falliscono perché non carica la domanda successiva (out of bounds)
 		assertEquals(controller.getQuestionText(), "Qual è la domanda?");
-		assertEquals(controller.getQuestionData().get(0).m_color, "green");
+		assertEquals(controller.getQuestionData().get(0).m_color, Color.GRAY);
 		
 	}
 
