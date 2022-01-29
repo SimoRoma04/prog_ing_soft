@@ -12,14 +12,20 @@ import javax.swing.table.AbstractTableModel;
 
 import org.knowm.xchart.XChartPanel;
 
+import adapter.GuiManagerAdapter;
+
 import javax.swing.*;
 
-public class Home {
+public class Home implements ViewInterface{
 
-	TestController m_controller;
+	GuiManagerAdapter m_guiManagerAdapter;
 	
-	public Home(TestController controller) {
-		m_controller = controller;
+	public Home(GuiManagerAdapter guiManagerAdapter) {
+		m_guiManagerAdapter = guiManagerAdapter;
+	}
+	
+	@Override
+	public JPanel refresh() {
 		
 		int larghezza = 800;
 		int altezza = 600;
@@ -145,6 +151,7 @@ public class Home {
 		//comando per refreshare la view
 		SwingUtilities.updateComponentTreeUI(frame);
 		
+		return null;
 	}
 	
 }
