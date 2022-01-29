@@ -96,7 +96,7 @@ public class Home implements ViewInterface{
 		panel_sx_up.addSubPanels(chartPanel, 25, 25);
 		
 
-		//aggiungo il pannello di destra al frame
+		//aggiungo il pannello di sinistra al frame
 		panel_sx.add(panel_sx_up, BorderLayout.NORTH);
 			
 		//sottopannello sx basso

@@ -47,7 +47,7 @@ public class AnswerQuestion implements ViewInterface{
 		frame.setSize(800, 600);
 		frame.setLayout(new BorderLayout(10,10));
 		frame.setVisible(true);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		
 		// Creazione di tutti i pannelli insieme
 		ArrayList<JPanel> panel = new ArrayList<JPanel>();
@@ -77,7 +77,35 @@ public class AnswerQuestion implements ViewInterface{
 		panel.get(4).add(label); //panel per immagine
 		
 		//inserimento del testo della domanda dal riferimento del controller
-		panel.get(0).add(new JLabel(m_controller.getName()));
+		JLabel jLabel = new JLabel(m_controller.getName());
+		JPanel sup = new JPanel();
+		JPanel inf = new JPanel();
+		sup.setBackground(Color.orange);
+		
+		//------ bottone con icona home
+		Icon homeImage = new ImageIcon("home.png");
+		JButton homeButton = new JButton(homeImage);
+		
+		homeButton.addActionListener(e -> System.out.println("prova pulsante Home"));
+		homeButton.setPreferredSize(new Dimension(20, 20));
+		homeButton.setOpaque(false);
+		homeButton.setContentAreaFilled(false);
+		homeButton.setBorderPainted(false);
+		//------
+		
+		panel.get(0).setLayout(new BorderLayout());
+		
+		sup.setPreferredSize(new Dimension(100, 20));
+		inf.setPreferredSize(new Dimension(100, 80));
+		inf.add(jLabel);
+		
+		sup.setLayout(new BorderLayout());
+		sup.add(homeButton, BorderLayout.EAST);
+		
+		panel.get(0).add(sup, BorderLayout.NORTH);
+		panel.get(0).add(inf, BorderLayout.SOUTH);
+		
+		//panel.get(0).add(new JLabel(m_controller.getName()));
 		
 		//------------- sub panels --------------------
 		/*
@@ -137,6 +165,8 @@ public class AnswerQuestion implements ViewInterface{
 		frame.add(panel.get(2),BorderLayout.EAST);
 		frame.add(panel.get(3),BorderLayout.SOUTH);
 		frame.add(panel.get(4),BorderLayout.CENTER);
+		
+		//provo a vedere se funziona
 		
 		// Comando per refreshare il contenuto del frame
 		SwingUtilities.updateComponentTreeUI(frame);
