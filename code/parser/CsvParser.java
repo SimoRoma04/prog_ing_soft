@@ -5,9 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
+
 
 import model.Option;
 import model.Question;
@@ -16,9 +14,13 @@ public class CsvParser {
 	
 	public static ArrayList<Question> parseCsv(String path) {
 		
-		ArrayList<Question> questions = new ArrayList<Question>();
-		
 		File f = new File(path);
+		return parseCsv(f);
+	}
+	
+	public static ArrayList<Question> parseCsv(File f) {
+		
+		ArrayList<Question> questions = new ArrayList<Question>();
 		
 		try {
 			FileReader fr = new FileReader(f);
