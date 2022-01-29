@@ -3,10 +3,16 @@ package adapter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import model.Question;
+
 public class QuizAdapter implements AdapterInterface {
 	
 	public QuizAdapter() {
 		
+	}
+	
+	public Question getQuestion() {
+		return null;
 	}
 	
 	public ArrayList<String> getChapterList()
