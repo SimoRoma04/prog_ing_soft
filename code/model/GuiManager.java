@@ -14,6 +14,7 @@ import view.Home;
 import view.ViewInterface;
 
 public class GuiManager extends JFrame{
+
 	ViewInterface m_view;
 	GuiManagerAdapter m_guiManagerAdapter;
 	QuizAdapter m_quizAdapter;
@@ -40,5 +41,33 @@ public class GuiManager extends JFrame{
 	{
 		super.add(comp, constraints);
 		SwingUtilities.updateComponentTreeUI(this);
+	}
+	
+	public void loadPage(PageTypes type) {
+		super.setVisible(false);
+		super.removeAll();
+		m_view = null;
+		
+		switch(type){
+			case P_HOME:
+				m_view = new Home(m_guiManagerAdapter, m_quizAdapter);
+				break;
+			case P_SETTINGS:
+				// m_view = new Settings(m_guiManagerAdapter, m_quizAdapter);
+				break;
+			case P_CHAPTER_SELECTION:
+				// m_view = new ChapterSelection(m_guiManagerAdapter, m_quizAdapter);
+				break;
+			case P_STATISTICS:
+				// m_view = new Statistics(m_guiManagerAdapter, m_quizAdapter);
+				break;
+			case P_QUIZ:
+				// m_view = new Quiz(m_guiManagerAdapter, m_quizAdapter);
+				break;
+		}
+		
+		super.setVisible(true);
+		m_view.refresh();
+		
 	}
 }
