@@ -1,8 +1,6 @@
 package controller;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import model.Course;
@@ -40,7 +38,7 @@ public class Controller extends ControllerAbs {
 		}
 		
 		// Carica titolo e immagine
-		m_questionText = m_course.getQuizList().get(m_currentQuestion).getQuestion();
+		m_questionText = m_course.getQuizList().get(m_currentQuestion).getText();
 		if(m_course.getQuizList().get(m_currentQuestion).getHasImage())
 			m_image = m_course.getQuizList().get(m_currentQuestion).getImage();
 		else
