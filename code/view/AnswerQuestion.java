@@ -2,52 +2,41 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.LayoutManager;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.awt.*;
+import java.awt.GridLayout;
+
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.text.JTextComponent;
+
+import adapter.GuiManagerAdapter;
+import adapter.QuizAdapter;
+import model.Image;
+import model.Option;
 
 public class AnswerQuestion implements ViewInterface{
 
-	TestController m_controller;
+	GuiManagerAdapter m_guiAdapter;
+	QuizAdapter m_quizAdapter;
 	ArrayList<JButton> m_buttons;
+	private JPanel frame;
 	
-	public AnswerQuestion(TestController controller) {
+	public AnswerQuestion(GuiManagerAdapter guiAdapter, QuizAdapter quizAdapter) {
 
-		// Layout Manager = Defines the natural layout for components within a container
-		
-		// 3 common managers
-		
-		// BorderLayout = 	A BorderLayout places components in five areas: NORTH,SOUTH,WEST,EAST,CENTER. 
-		//					All extra space is placed in the center area.
-		
-		m_controller = controller;
+		m_guiAdapter = guiAdapter;
+		m_quizAdapter = quizAdapter;
 
 		// Creazione della label per inserimento immagine in pannello blu (4)
 		JLabel label = new JLabel();
 		ImageIcon image2 = new ImageIcon("Effect_Aard.png");
 		label.setIcon(image2);
 
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(800, 600);
-		frame.setLayout(new BorderLayout(10,10));
-		frame.setVisible(true);
-		frame.setResizable(true);
+
+		frame = new JPanel();
 		
 		// Creazione di tutti i pannelli insieme
 		ArrayList<JPanel> panel = new ArrayList<JPanel>();
@@ -70,86 +59,31 @@ public class AnswerQuestion implements ViewInterface{
 		panel.get(3).setPreferredSize(new Dimension(100,200));
 		panel.get(4).setPreferredSize(new Dimension(100,100));
 		
-		// Inserimento dell'immagine
-		//ImageIcon pic = new ImageIcon("prova_img.png");
-	    
-	    //label.setIcon(pic);
-		panel.get(4).add(label); //panel per immagine
+
 		
-		//inserimento del testo della domanda dal riferimento del controller
-		JLabel jLabel = new JLabel(m_controller.getName());
-		JPanel sup = new JPanel();
-		JPanel inf = new JPanel();
-		sup.setBackground(Color.orange);
-		
-		//------ bottone con icona home
-		Icon homeImage = new ImageIcon("home.png");
-		JButton homeButton = new JButton(homeImage);
-		
-		homeButton.addActionListener(e -> System.out.println("prova pulsante Home"));
-		homeButton.setPreferredSize(new Dimension(20, 20));
-		homeButton.setOpaque(false);
-		homeButton.setContentAreaFilled(false);
-		homeButton.setBorderPainted(false);
-		//------
-		
-		panel.get(0).setLayout(new BorderLayout());
-		
-		sup.setPreferredSize(new Dimension(100, 20));
-		inf.setPreferredSize(new Dimension(100, 80));
-		inf.add(jLabel);
-		
-		sup.setLayout(new BorderLayout());
-		sup.add(homeButton, BorderLayout.EAST);
-		
-		panel.get(0).add(sup, BorderLayout.NORTH);
-		panel.get(0).add(inf, BorderLayout.SOUTH);
-		
-		//panel.get(0).add(new JLabel(m_controller.getName()));
-		
-		//------------- sub panels --------------------
-		/*
-		ArrayList<JPanel> subPanel = new ArrayList<JPanel>();
-		
-			for(int i=0; i<5; i++) {
-				subPanel.add(new JPanel());
-			}
-		
-		
-		subPanel.get(0).setBackground(Color.black);
-		subPanel.get(1).setBackground(Color.darkGray);
-		subPanel.get(2).setBackground(Color.gray);
-		subPanel.get(3).setBackground(Color.lightGray);
-		subPanel.get(4).setBackground(Color.white);
-		
-		panel.get(4).setLayout(new BorderLayout());
-		
-		for(int i=0; i<5; i++) {
-			subPanel.get(i).setPreferredSize(new Dimension(50,50));
+		// Inserimento dell'immagine (se c'è)
+		if(m_quizAdapter.getQuestion().getHasImage()) {
+			Image img = m_quizAdapter.getQuestion().getImage();
+			ImageIcon pic = img.getImage();
+			label.setIcon(pic);
 		}
+
+		// Panel per immagine
+		panel.get(4).add(label); 
 		
-		
-		
-		panel.get(3).add(subPanel.get(0),BorderLayout.NORTH);
-		panel.get(3).add(subPanel.get(1),BorderLayout.SOUTH);
-		panel.get(3).add(subPanel.get(2),BorderLayout.WEST);
-		panel.get(3).add(subPanel.get(3),BorderLayout.EAST);
-		panel.get(3).add(subPanel.get(4),BorderLayout.CENTER);
-		*/
-		//------------- sub panels --------------------
+		// Inserimento del testo della domanda dal riferimento del controller
+		panel.get(0).add(new JLabel(m_quizAdapter.getQuestion().getText()));
 		
 		// Inizializzazione dell'ArrayList dei bottoni
 		m_buttons = new ArrayList<JButton>();
 		
 		// Creazione di un bottone per ogni domanda
-		for (String s: m_controller.getAnswer()) {
-			JButton temp = new JButton(s);
-			temp.addActionListener(e -> System.out.println("prova pulsante" + s));  //al posto della stringa bisogna inserire il metodo che viene invocato
+		for (Option o: m_quizAdapter.getQuestion().getOptions()) {
+			JButton temp = new JButton(o.getText());
+			temp.addActionListener(e -> System.out.println("prova pulsante" + o.getText()));  //al posto della stringa bisogna inserire il metodo che viene invocato
 			m_buttons.add(temp);
 		}
 		
-		
-		// SUCCESSIVAMENTE: introdurre modo per disabilitare i bottoni
 		
 		// Comandi per sistemare il layout dei pannelli: struttura a griglia
 		panel.get(3).setLayout(new GridLayout(2, 2, 10, 10));
@@ -166,15 +100,19 @@ public class AnswerQuestion implements ViewInterface{
 		frame.add(panel.get(3),BorderLayout.SOUTH);
 		frame.add(panel.get(4),BorderLayout.CENTER);
 		
-		//provo a vedere se funziona
+		this.refresh();
 		
-		// Comando per refreshare il contenuto del frame
-		SwingUtilities.updateComponentTreeUI(frame);
+
 	}
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-		
+		SwingUtilities.updateComponentTreeUI(frame);	
+	}
+	
+	public void disableButtons() {
+		for (JButton b: m_buttons) {
+			b.setEnabled(false);
+		}
 	}
 }
