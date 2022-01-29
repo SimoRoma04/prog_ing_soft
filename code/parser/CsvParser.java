@@ -5,22 +5,23 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-
+import model.Chapter;
 import model.Option;
 import model.Question;
 
 public class CsvParser {
 	
-	public static ArrayList<Question> parseCsv(String path) {
+	public static HashMap<String, Chapter> parseCsv(String path) {
 		
 		File f = new File(path);
 		return parseCsv(f);
 	}
 	
-	public static ArrayList<Question> parseCsv(File f) {
+	public static HashMap<String, Chapter> parseCsv(File f) {
 		
-		ArrayList<Question> questions = new ArrayList<Question>();
+		HashMap<String, Chapter> chapters = new HashMap<String, Chapter>();
 		
 		try {
 			FileReader fr = new FileReader(f);
@@ -89,8 +90,16 @@ public class CsvParser {
 					if(!current.equals("")) options.add(new Option(current, false));
 				}
 				
-				questions.add(new Question(chapter, question, hasImage, image, options));
-				
+				Question questionToAdd = new Question(question, hasImage, image, options);
+				if(chapters.get(chapter) != null) {
+					chapters.get(chapter).add(questionToAdd);
+				}
+				else
+				{
+					Chapter chapterToAdd = new Chapter(chapter);
+					chapterToAdd.add(questionToAdd);
+					chapters.put(chapter, chapterToAdd);
+				}
 			}
 			
 			
@@ -98,6 +107,6 @@ public class CsvParser {
 			e.printStackTrace();
 		}
 		
-		return questions;
+		return chapters;
 	}
 }
