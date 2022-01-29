@@ -1,20 +1,21 @@
 package model;
 public class Option {
-	private String text;
-	private boolean isRight;
+	private String m_text;
+	private boolean m_isRight;
+	
+	public Option(String text, Boolean isRight) {
+		m_text = text;
+		m_isRight = isRight;
+	}
 	
 	public String getText() {
-		return text;
+		return m_text;
 	}
-	public void setText(String text) {
-		this.text = text;
-	}
+
 	public boolean getIsRight() {
-		return isRight;
+		return m_isRight;
 	}
-	public void setIsRight(boolean isRight) {
-		this.isRight = isRight;
-	}
+
 	
 	
 }

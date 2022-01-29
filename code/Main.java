@@ -1,5 +1,6 @@
 
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,9 +11,13 @@ import javax.swing.JPanel;
 import controller.Controller;
 import model.Course;
 import model.Option;
-import model.Quiz;
+
 
 import javax.swing.JFrame;
+
+import view.Home;
+import view.TestController;
+
 
 public class Main{
 
