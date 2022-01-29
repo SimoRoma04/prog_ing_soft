@@ -16,11 +16,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 
-public class AnswerQuestion extends ViewAbs{
+public class AnswerQuestion implements ViewInterface{
 
 	TestController m_controller;
 	ArrayList<JButton> m_buttons;
@@ -139,5 +140,11 @@ public class AnswerQuestion extends ViewAbs{
 		
 		// Comando per refreshare il contenuto del frame
 		SwingUtilities.updateComponentTreeUI(frame);
+	}
+
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+		
 	}
 }
