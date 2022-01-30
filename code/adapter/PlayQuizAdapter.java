@@ -119,14 +119,13 @@ public class PlayQuizAdapter implements AdapterInterface {
 			}
 			//System.out.println("\"" + option.getText() + "\" WAS THE " + rightOrWrong + " OPTION");
 			m_hasAnswered = true;
+			
+			m_guiManager.refresh();
 		}
 		else
 		{
-			m_hasAnswered = false;
-			moveToNextQuestion();
+			//moveToNextQuestion();
 		}
-		
-		m_guiManager.refresh();
 		
 		return;
 	}
@@ -135,7 +134,9 @@ public class PlayQuizAdapter implements AdapterInterface {
 	{
 		if(m_questionOrder.size() > 1)
 		{
+			m_hasAnswered = false;
 			m_questionOrder.remove(0);
+			m_guiManager.refresh();
 		}
 		else
 		{

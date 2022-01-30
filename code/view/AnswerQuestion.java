@@ -72,6 +72,28 @@ public class AnswerQuestion implements ViewInterface{
 		panel.get(3).setPreferredSize(new Dimension(100,200));
 		panel.get(4).setPreferredSize(new Dimension(100,100));
 		
+		
+		
+		JButton nextQuestionButton = new JButton("<html>Next Question");
+		
+		nextQuestionButton.addActionListener(e -> m_playQuizAdapter.moveToNextQuestion());
+		nextQuestionButton.setPreferredSize(new Dimension(100, 200));
+		/*nextQuestionButton.setOpaque(false);
+		nextQuestionButton.setContentAreaFilled(false);
+		nextQuestionButton.setBorderPainted(false);*/
+		nextQuestionButton.setEnabled(false);
+		nextQuestionButton.setVisible(false);
+		
+		if(m_playQuizAdapter.isOptionSelected())
+		{
+			nextQuestionButton.setEnabled(true);
+			nextQuestionButton.setVisible(true);
+		}
+		
+		panel.get(2).add(nextQuestionButton);
+		
+		
+		
 		//-----
 		//inserimento del testo della domanda dal riferimento del controller
 		JLabel jLabel = new JLabel(m_playQuizAdapter.getQuestion().getText());
