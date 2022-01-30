@@ -29,9 +29,7 @@ public class QuizManager {
 	}
 	
 	public Chapter getChapter(String name) {
-		Chapter chapter = null;
-		
-		return chapter;
+		return m_chapterMap.get(name);
 	}
 	
 	public ArrayList<String> getChapterNameList()
