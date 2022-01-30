@@ -24,19 +24,19 @@ import model.PageTypes;
 
 public class AnswerQuestion implements ViewInterface{
 
-	GuiManagerAdapter m_guiAdapter;
+	GuiManagerAdapter m_guiManagerAdapter;
 	PlayQuizAdapter m_playQuizAdapter;
 	ArrayList<JButton> m_buttons;
 	
-	public AnswerQuestion(GuiManagerAdapter guiAdapter, PlayQuizAdapter quizAdapter) {
-		m_guiAdapter = guiAdapter;
-		m_playQuizAdapter = quizAdapter;
+	public AnswerQuestion(GuiManagerAdapter guiManagerAdapter, PlayQuizAdapter playQuizAdapter) {
+		m_guiManagerAdapter = guiManagerAdapter;
+		m_playQuizAdapter = playQuizAdapter;
 
 		m_playQuizAdapter.startRandomChapter();
 	}
 	
 	public AnswerQuestion(GuiManagerAdapter guiAdapter, PlayQuizAdapter quizAdapter, String chapterName) {
-		m_guiAdapter = guiAdapter;
+		m_guiManagerAdapter = guiAdapter;
 		m_playQuizAdapter = quizAdapter;
 		
 		m_playQuizAdapter.startChapter(chapterName);
@@ -85,7 +85,7 @@ public class AnswerQuestion implements ViewInterface{
 		Icon homeImage = new ImageIcon("home.png");
 		JButton homeButton = new JButton(homeImage);
 		
-		homeButton.addActionListener(e -> m_guiAdapter.loadPage(PageTypes.P_HOME));
+		homeButton.addActionListener(e -> m_guiManagerAdapter.loadPage(PageTypes.P_HOME));
 		homeButton.setPreferredSize(new Dimension(20, 20));
 		homeButton.setOpaque(false);
 		homeButton.setContentAreaFilled(false);
@@ -156,11 +156,11 @@ public class AnswerQuestion implements ViewInterface{
 		}
 		
 		
-		m_guiAdapter.add(panel.get(0),BorderLayout.NORTH);
-		m_guiAdapter.add(panel.get(1),BorderLayout.WEST);
-		m_guiAdapter.add(panel.get(2),BorderLayout.EAST);
-		m_guiAdapter.add(panel.get(3),BorderLayout.SOUTH);
-		m_guiAdapter.add(panel.get(4),BorderLayout.CENTER);
+		m_guiManagerAdapter.add(panel.get(0),BorderLayout.NORTH);
+		m_guiManagerAdapter.add(panel.get(1),BorderLayout.WEST);
+		m_guiManagerAdapter.add(panel.get(2),BorderLayout.EAST);
+		m_guiManagerAdapter.add(panel.get(3),BorderLayout.SOUTH);
+		m_guiManagerAdapter.add(panel.get(4),BorderLayout.CENTER);
 
 	}
 	
