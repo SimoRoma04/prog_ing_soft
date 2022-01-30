@@ -137,7 +137,7 @@ public class AnswerQuestion implements ViewInterface{
 			Option o = optionList.get(optionOrderList.get(i));
 			JButton temp = new JButton(o.getText());
 			
-			if(m_playQuizAdapter.isShowColor())
+			if(m_playQuizAdapter.isOptionSelected())
 			{
 				temp.setBackground(o.getIsRight() ? Color.GREEN : Color.RED);
 				temp.setOpaque(true);

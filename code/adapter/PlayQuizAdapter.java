@@ -151,7 +151,7 @@ public class PlayQuizAdapter implements AdapterInterface {
 		return;
 	}
 	
-	public boolean isShowColor()
+	public boolean isOptionSelected()
 	{
 		return m_hasAnswered;
 	}
