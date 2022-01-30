@@ -1,6 +1,8 @@
 package view;
 import java.util.ArrayList;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -9,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 import org.knowm.xchart.XChartPanel;
 
@@ -39,24 +42,35 @@ public class Home implements ViewInterface{
 		//prova creazione frame con tabella scrollabile
 		
 		
-		///costruzione della Jtable
-		String columnName = "ARGOMENTI";
-		
-		
-		String[] coloumnNames = {"INGEGNERIA DEL SOFTWARE"};
-		
-		
-		
+		///costruzione della Jtable	
 		ArrayList<String> chapterList = m_quizAdapter.getChapterList();
 		
-		String[][] data = new String[1][chapterList.size()];
-		data[0] = chapterList.toArray(new String[chapterList.size()]);
+		DefaultTableModel model = new DefaultTableModel();
 		
-		JTable table = new JTable(data, coloumnNames){
+        model.addColumn("ARGOMENTI");
+        
+        for(int i = 0; i < chapterList.size(); i++)
+        {
+    		model.addRow(new String[] {chapterList.get(i)});
+        }
+        
+		JTable table = new JTable(model) {
 			public boolean isCellEditable(int rowIndex, int colIndex) {
 				return false; //Disabilitare la modifica della JTable
-				}
-			};
+			}
+		};
+		
+		table.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+              if (e.getClickCount() == 2) {
+                JTable target = (JTable)e.getSource();
+                int row = target.getSelectedRow();
+                m_guiManagerAdapter.loadPage(PageTypes.P_QUIZ, chapterList.get(row));
+              }
+            }
+          });
+		
+		
 			
         table.setPreferredScrollableViewportSize(new Dimension(60, 60));
         table.setFillsViewportHeight(true);
