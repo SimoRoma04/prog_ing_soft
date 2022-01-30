@@ -5,6 +5,8 @@ import view.TestController;
 
 import java.util.ArrayList;
 
+import adapter.GuiManagerAdapter;
+import adapter.QuizAdapter;
 import model.GuiManager;
 import model.QuizManager;
 
@@ -15,7 +17,7 @@ public class Main{
 
 	public static void main(String[] args) {
 	
-		new AnswerQuestion(new TestController("ofnoefn"));
+		//new AnswerQuestion(new TestController("ofnoefn"));
 		
 		m_guiManager = new GuiManager();
 		m_quizManager = new QuizManager();
@@ -24,6 +26,8 @@ public class Main{
 		ArrayList<String> chapterTitles = m_quizManager.getChapterNameList();
 
 		System.out.println("Sto eseguedo il main");
+		
+		new AnswerQuestion(new GuiManagerAdapter(m_guiManager), new QuizAdapter());
 		
 	//	new AnswerQuestion(new TestController("giacomino"));
 	}

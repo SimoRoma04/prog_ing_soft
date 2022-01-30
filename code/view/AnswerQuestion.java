@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 
 import java.util.ArrayList;
 
-
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -59,7 +59,38 @@ public class AnswerQuestion implements ViewInterface{
 		panel.get(3).setPreferredSize(new Dimension(100,200));
 		panel.get(4).setPreferredSize(new Dimension(100,100));
 		
-
+		//-----
+		//inserimento del testo della domanda dal riferimento del controller
+		JLabel jLabel = new JLabel(m_quizAdapter.getQuestion().getText());
+		
+		//INSERIMENTO BOTTONE PER LA HOME
+		JPanel sup = new JPanel();
+		JPanel inf = new JPanel();
+		sup.setBackground(Color.orange);
+		
+		//bottone con icona home
+		Icon homeImage = new ImageIcon("home.png");
+		JButton homeButton = new JButton(homeImage);
+		
+		homeButton.addActionListener(e -> System.out.println("prova pulsante Home"));
+		homeButton.setPreferredSize(new Dimension(20, 20));
+		homeButton.setOpaque(false);
+		homeButton.setContentAreaFilled(false);
+		homeButton.setBorderPainted(false);
+		
+		panel.get(0).setLayout(new BorderLayout());
+		
+		sup.setPreferredSize(new Dimension(100, 20));
+		inf.setPreferredSize(new Dimension(100, 80));
+		inf.add(jLabel);
+		
+		sup.setLayout(new BorderLayout());
+		sup.add(homeButton, BorderLayout.EAST);
+		
+		panel.get(0).add(sup, BorderLayout.NORTH);
+		panel.get(0).add(inf, BorderLayout.SOUTH);
+		//-----
+		
 		
 		// Inserimento dell'immagine (se c'è)
 		if(m_quizAdapter.getQuestion().getHasImage()) {
