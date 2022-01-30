@@ -24,7 +24,7 @@ public class GuiManager extends JFrame{
 		m_guiManagerAdapter = new GuiManagerAdapter(this);
 		m_quizAdapter = new QuizAdapter(quizManager);
 		
-		loadPage(PageTypes.P_HOME);
+		loadPage(PageTypes.P_HOME, null, false);
 		
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setSize(800, 600);
@@ -40,7 +40,7 @@ public class GuiManager extends JFrame{
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 	
-	public void loadPage(PageTypes type) {
+	public void loadPage(PageTypes type, String stringParam, Boolean boolParam) {
 		super.setVisible(false);
 		super.getContentPane().removeAll();
 		

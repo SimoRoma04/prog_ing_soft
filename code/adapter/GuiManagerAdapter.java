@@ -16,6 +16,10 @@ public class GuiManagerAdapter implements AdapterInterface{
 	}
 	
 	public void loadPage(PageTypes type) {
-		m_guiManager.loadPage(type);
+		m_guiManager.loadPage(type, null, false);
+	}
+	
+	public void loadPage(PageTypes type, String stringParam) {
+		m_guiManager.loadPage(type, stringParam, false);
 	}
 }
