@@ -15,6 +15,7 @@ public class GuiManager extends JFrame{
 	ViewInterface m_view;
 	GuiManagerAdapter m_guiManagerAdapter;
 	QuizAdapter m_quizAdapter;
+	PlayQuizAdapter m_playQuizAdapter;
 	//JFrame m_frame = new JFrame();
 	
 	public GuiManager(QuizManager quizManager)
@@ -23,6 +24,7 @@ public class GuiManager extends JFrame{
 		
 		m_guiManagerAdapter = new GuiManagerAdapter(this);
 		m_quizAdapter = new QuizAdapter(quizManager);
+		m_playQuizAdapter = new PlayQuizAdapter(quizManager);
 		
 		loadPage(PageTypes.P_HOME, null, false);
 		
@@ -58,7 +60,7 @@ public class GuiManager extends JFrame{
 				// m_view = new Statistics(m_guiManagerAdapter, m_quizAdapter);
 				break;
 			case P_QUIZ:
-				m_view = new AnswerQuestion(m_guiManagerAdapter, m_quizAdapter);
+				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter, stringParam);
 				break;
 			case P_RANDOM_QUIZ:
 				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter);

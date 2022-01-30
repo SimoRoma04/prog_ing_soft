@@ -28,6 +28,15 @@ public class AnswerQuestion implements ViewInterface{
 	public AnswerQuestion(GuiManagerAdapter guiAdapter, PlayQuizAdapter quizAdapter) {
 		m_guiAdapter = guiAdapter;
 		m_playQuizAdapter = quizAdapter;
+
+		m_playQuizAdapter.startRandomChapter();
+	}
+	
+	public AnswerQuestion(GuiManagerAdapter guiAdapter, PlayQuizAdapter quizAdapter, String chapterName) {
+		m_guiAdapter = guiAdapter;
+		m_playQuizAdapter = quizAdapter;
+		
+		m_playQuizAdapter.startChapter(chapterName);
 	}
 	
 	
