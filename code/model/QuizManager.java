@@ -1,19 +1,19 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import parser.CsvParser;
 
 public class QuizManager {
-	HashMap<String, Chapter> m_chapterMap = new HashMap<String, Chapter>();
+	LinkedHashMap<String, Chapter> m_chapterMap = new LinkedHashMap<String, Chapter>();
 	
 	public QuizManager() {
 		
 	}
 	
 	public void loadFile(String path) {
-		HashMap<String, Chapter> chapterList = CsvParser.parseCsv(path);
+		LinkedHashMap<String, Chapter> chapterList = CsvParser.parseCsv(path);
 		
 		for(Chapter c : chapterList.values())
 		{
