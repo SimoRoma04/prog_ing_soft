@@ -14,6 +14,7 @@ import org.knowm.xchart.XChartPanel;
 
 import adapter.GuiManagerAdapter;
 import adapter.QuizAdapter;
+import model.PageTypes;
 
 import javax.swing.*;
 
@@ -110,7 +111,7 @@ public class Home implements ViewInterface{
 		pannelloBottoni.setLayout(new GridLayout(2, 2, 10, 30));
 		
 		JButton startButton = new JButton("START QUIZ");
-		startButton.addActionListener(e -> System.out.println("prova pulsante START"));
+		startButton.addActionListener(e -> m_guiManagerAdapter.loadPage(PageTypes.P_QUIZ));
 		pannelloBottoni.add(startButton);
 		
 		JButton setButton = new JButton("SETTINGS");

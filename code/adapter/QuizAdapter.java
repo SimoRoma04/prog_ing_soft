@@ -4,50 +4,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import model.Question;
+import model.QuizManager;
 
 public class QuizAdapter implements AdapterInterface {
 	
-	public QuizAdapter() {
-		
+	private QuizManager m_quizManager;
+	private String m_currentChapter;
+	private int m_currentQuestion;
+	
+	public QuizAdapter(QuizManager q) {
+		m_quizManager = q;
+		m_currentChapter = m_quizManager.getChapterNameList().get(0);
+		m_currentQuestion = 0;
 	}
 	
 	public Question getQuestion() {
-		return null;
+		return m_quizManager.getChapter(m_currentChapter).getQuestionList().get(m_currentQuestion);
 	}
 	
-	public ArrayList<String> getChapterList()
-	{
-		ArrayList<String> chapterList = new ArrayList<String>();
+	public ArrayList<String> getChapterList() {
+		return m_quizManager.getChapterNameList();
+	};
 		
-		String[] data = {
-				"CAP1: ingegneria acrobatica",
-				"CAP2: ignoransa",
-				"CAP3: come non fare un progetto",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa",
-				"CAP2: ignoransa"
-		};
-		
-		chapterList.addAll(Arrays.asList(data));
-		
-		return chapterList;
-	}
 }

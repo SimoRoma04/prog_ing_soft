@@ -17,26 +17,27 @@ import adapter.GuiManagerAdapter;
 import adapter.QuizAdapter;
 import model.Image;
 import model.Option;
+import model.PageTypes;
 
 public class AnswerQuestion implements ViewInterface{
 
 	GuiManagerAdapter m_guiAdapter;
 	QuizAdapter m_quizAdapter;
 	ArrayList<JButton> m_buttons;
-	private JPanel frame;
 	
 	public AnswerQuestion(GuiManagerAdapter guiAdapter, QuizAdapter quizAdapter) {
-
 		m_guiAdapter = guiAdapter;
 		m_quizAdapter = quizAdapter;
-
+	}
+	
+	
+	@Override
+	public void refresh() {
 		// Creazione della label per inserimento immagine in pannello blu (4)
 		JLabel label = new JLabel();
 		ImageIcon image2 = new ImageIcon("Effect_Aard.png");
 		label.setIcon(image2);
 
-
-		frame = new JPanel();
 		
 		// Creazione di tutti i pannelli insieme
 		ArrayList<JPanel> panel = new ArrayList<JPanel>();
@@ -72,7 +73,7 @@ public class AnswerQuestion implements ViewInterface{
 		Icon homeImage = new ImageIcon("home.png");
 		JButton homeButton = new JButton(homeImage);
 		
-		homeButton.addActionListener(e -> System.out.println("prova pulsante Home"));
+		homeButton.addActionListener(e -> m_guiAdapter.loadPage(PageTypes.P_HOME));
 		homeButton.setPreferredSize(new Dimension(20, 20));
 		homeButton.setOpaque(false);
 		homeButton.setContentAreaFilled(false);
@@ -125,20 +126,12 @@ public class AnswerQuestion implements ViewInterface{
 		}
 		
 		
-		frame.add(panel.get(0),BorderLayout.NORTH);
-		frame.add(panel.get(1),BorderLayout.WEST);
-		frame.add(panel.get(2),BorderLayout.EAST);
-		frame.add(panel.get(3),BorderLayout.SOUTH);
-		frame.add(panel.get(4),BorderLayout.CENTER);
-		
-		this.refresh();
-		
+		m_guiAdapter.add(panel.get(0),BorderLayout.NORTH);
+		m_guiAdapter.add(panel.get(1),BorderLayout.WEST);
+		m_guiAdapter.add(panel.get(2),BorderLayout.EAST);
+		m_guiAdapter.add(panel.get(3),BorderLayout.SOUTH);
+		m_guiAdapter.add(panel.get(4),BorderLayout.CENTER);
 
-	}
-
-	@Override
-	public void refresh() {
-		SwingUtilities.updateComponentTreeUI(frame);	
 	}
 	
 	public void disableButtons() {
