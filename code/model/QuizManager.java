@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.Random;
 
 import parser.CsvParser;
 
@@ -30,6 +31,10 @@ public class QuizManager {
 	
 	public Chapter getChapter(String name) {
 		return m_chapterMap.get(name);
+	}
+	
+	public Chapter getRandomChapter() {
+		return new ArrayList<Chapter>(m_chapterMap.values()).get(new Random().nextInt(m_chapterMap.size()));
 	}
 	
 	public ArrayList<String> getChapterNameList()
