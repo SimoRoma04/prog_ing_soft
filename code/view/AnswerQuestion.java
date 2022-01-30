@@ -140,6 +140,7 @@ public class AnswerQuestion implements ViewInterface{
 			if(m_playQuizAdapter.isShowColor())
 			{
 				temp.setBackground(o.getIsRight() ? Color.GREEN : Color.RED);
+				temp.setOpaque(true);
 			}
 			
 			temp.addActionListener(e -> m_playQuizAdapter.answer(o));  //al posto della stringa bisogna inserire il metodo che viene invocato
