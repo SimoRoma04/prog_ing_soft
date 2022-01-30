@@ -6,7 +6,17 @@ import org.knowm.xchart.CategoryChart;
 import org.knowm.xchart.CategoryChartBuilder;
 import org.knowm.xchart.style.Styler.ChartTheme;
 
+import adapter.StatisticsAdapter;
+import model.StatisticsManager;
+
 public class BarChartHome {
+	StatisticsAdapter m_statisticsAdapter;
+	
+	public BarChartHome(StatisticsAdapter statisticsAdapter)
+	{
+		m_statisticsAdapter = statisticsAdapter;
+	}
+	
 	public CategoryChart getChart() {
 		 
 	    // Create Chart
@@ -15,10 +25,29 @@ public class BarChartHome {
 	    // Customize Chart
 	 
 	    // Series
-	    chart.addSeries("Corrette", new ArrayList<String>(Arrays.asList(new String[] { "Cap1", "Cap2", "Cap3", "Cap4", "Cap5" })), new ArrayList<Number>(Arrays.asList(new Number[] { 40, 30, 20, 60,
-	        60 })));
-	    chart.addSeries("Sbagliate", new ArrayList<String>(Arrays.asList(new String[] { "Cap1", "Cap2", "Cap3", "Cap4", "Cap5" })), new ArrayList<Number>(Arrays.asList(new Number[] { 50, 10, 20, 40,
-	        60 })));
+	    
+	    ArrayList<String> chapters = m_statisticsAdapter.getChapterList();
+	    ArrayList<Integer> rights = m_statisticsAdapter.getRightAnswerList();
+	    ArrayList<Integer> wrongs = m_statisticsAdapter.getWrongAnswerList();
+	    
+	    if(chapters.size() == 0)
+	    {
+	    	chapters.add("No data");
+	    	rights.add(0);
+	    	wrongs.add(0);
+	    }
+	    
+	    chart.addSeries(
+	    		"Corrette", 
+	    		chapters,
+	    		rights
+	    		);
+	    chart.addSeries(
+	    		"Sbagliate", 
+	    		chapters, 
+	    		wrongs
+	    		);
+	    
 
 	 
 	    return chart;

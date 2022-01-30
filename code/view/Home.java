@@ -17,6 +17,7 @@ import org.knowm.xchart.XChartPanel;
 
 import adapter.GuiManagerAdapter;
 import adapter.QuizAdapter;
+import adapter.StatisticsAdapter;
 import model.PageTypes;
 
 import javax.swing.*;
@@ -25,10 +26,12 @@ public class Home implements ViewInterface{
 
 	GuiManagerAdapter m_guiManagerAdapter;
 	QuizAdapter m_quizAdapter;
+	StatisticsAdapter m_statisticsAdapter;
 	
-	public Home(GuiManagerAdapter guiManagerAdapter, QuizAdapter quizAdapter) {
+	public Home(GuiManagerAdapter guiManagerAdapter, QuizAdapter quizAdapter, StatisticsAdapter statisticsAdapter) {
 		m_guiManagerAdapter = guiManagerAdapter;
 		m_quizAdapter = quizAdapter;
+		m_statisticsAdapter = statisticsAdapter;
 	}
 	
 	@Override
@@ -107,7 +110,8 @@ public class Home implements ViewInterface{
 		//aggiungo al pannello centrale un pannello scrollabile
         //costruzione del pannello scorribile
 		JPanel pannelloGrafico = new JPanel();
-		JPanel chartPanel = new XChartPanel(new BarChartHome().getChart());
+		BarChartHome barChartHome = new BarChartHome(m_statisticsAdapter);
+		JPanel chartPanel = new XChartPanel(barChartHome.getChart());
 		panel_sx_up.addSubPanels(chartPanel, 25, 25);
 		
 

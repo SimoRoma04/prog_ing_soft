@@ -14,18 +14,21 @@ import view.ViewInterface;
 public class GuiManager extends JFrame{
 
 	ViewInterface m_view;
+	
 	GuiManagerAdapter m_guiManagerAdapter;
 	QuizAdapter m_quizAdapter;
 	PlayQuizAdapter m_playQuizAdapter;
+	StatisticsAdapter m_statisticsAdapter;
 	//JFrame m_frame = new JFrame();
 	
-	public GuiManager(QuizManager quizManager)
+	public GuiManager(QuizManager quizManager, StatisticsManager statisticsManager)
 	{
 		super();
 		
 		m_guiManagerAdapter = new GuiManagerAdapter(this);
 		m_quizAdapter = new QuizAdapter(quizManager);
-		m_playQuizAdapter = new PlayQuizAdapter(quizManager, this);
+		m_playQuizAdapter = new PlayQuizAdapter(quizManager, this, statisticsManager);
+		m_statisticsAdapter = new StatisticsAdapter(statisticsManager);
 		
 		//loadPage(PageTypes.P_QUIZ_END, null, false);
 		loadPage(PageTypes.P_HOME, null, false);
@@ -50,7 +53,7 @@ public class GuiManager extends JFrame{
 		
 		switch(type){
 			case P_HOME:
-				m_view = new Home(m_guiManagerAdapter, m_quizAdapter);
+				m_view = new Home(m_guiManagerAdapter, m_quizAdapter, m_statisticsAdapter);
 				break;
 			case P_QUIZ:
 				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter, stringParam);

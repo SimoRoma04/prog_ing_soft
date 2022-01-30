@@ -9,18 +9,21 @@ import model.Option;
 import model.PageTypes;
 import model.Question;
 import model.QuizManager;
+import model.StatisticsManager;
 
 public class PlayQuizAdapter implements AdapterInterface {
 	private QuizManager m_quizManager;
 	private GuiManager m_guiManager;
+	private StatisticsManager m_statisticsManager;
 	private Chapter m_chapter;
 	private ArrayList<Integer> m_questionOrder;
 	private int m_rightAnswerCount;
 	private Boolean m_hasAnswered;
 	
-	public PlayQuizAdapter(QuizManager quizManager, GuiManager guiManager) {
+	public PlayQuizAdapter(QuizManager quizManager, GuiManager guiManager, StatisticsManager statisticsManager) {
 		m_quizManager = quizManager;
 		m_guiManager = guiManager;
+		m_statisticsManager = statisticsManager;
 	}
 	
 	public void startChapter(String chapterName)
@@ -149,6 +152,7 @@ public class PlayQuizAdapter implements AdapterInterface {
 	private void endChapter()
 	{
 		m_guiManager.loadPage(PageTypes.P_QUIZ_END);
+		m_statisticsManager.addResult(m_chapter.getName(), m_rightAnswerCount, m_chapter.getQuestionList().size());
 		return;
 	}
 	
