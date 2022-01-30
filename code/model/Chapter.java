@@ -25,6 +25,11 @@ public class Chapter {
 		return;
 	}
 	
+	public Question getQuestion(int index)
+	{
+		return m_questionList.get(index);
+	}
+	
 	public ArrayList<Question> getQuestionList() {
 		return m_questionList;
 	}
