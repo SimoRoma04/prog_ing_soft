@@ -52,15 +52,6 @@ public class GuiManager extends JFrame{
 			case P_HOME:
 				m_view = new Home(m_guiManagerAdapter, m_quizAdapter);
 				break;
-			case P_SETTINGS:
-				// m_view = new Settings(m_guiManagerAdapter, m_quizAdapter);
-				break;
-			case P_CHAPTER_SELECTION:
-				// m_view = new ChapterSelection(m_guiManagerAdapter, m_quizAdapter);
-				break;
-			case P_STATISTICS:
-				// m_view = new Statistics(m_guiManagerAdapter, m_quizAdapter);
-				break;
 			case P_QUIZ:
 				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter, stringParam);
 				break;
