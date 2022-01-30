@@ -7,5 +7,5 @@ public enum PageTypes {
 	P_STATISTICS,
 	P_QUIZ,
 	P_RANDOM_QUIZ,
-	P_QUESTION_RESULT
+	P_QUIZ_END
 }

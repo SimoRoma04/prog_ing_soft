@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 import adapter.*;
 import view.AnswerQuestion;
 import view.Home;
+import view.QuizEnd;
 import view.ViewInterface;
 
 public class GuiManager extends JFrame{
@@ -26,6 +27,7 @@ public class GuiManager extends JFrame{
 		m_quizAdapter = new QuizAdapter(quizManager);
 		m_playQuizAdapter = new PlayQuizAdapter(quizManager, this);
 		
+		//loadPage(PageTypes.P_QUIZ_END, null, false);
 		loadPage(PageTypes.P_HOME, null, false);
 		
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,8 +67,8 @@ public class GuiManager extends JFrame{
 			case P_RANDOM_QUIZ:
 				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter);
 				break;
-			case P_QUESTION_RESULT:
-				//m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter);
+			case P_QUIZ_END:
+				m_view = new QuizEnd(m_guiManagerAdapter, m_playQuizAdapter);
 				break;
 			default:
 				System.out.println("Questo P_CODE non esiste");

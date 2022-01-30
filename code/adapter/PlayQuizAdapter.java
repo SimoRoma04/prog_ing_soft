@@ -14,8 +14,9 @@ public class PlayQuizAdapter implements AdapterInterface {
 	private QuizManager m_quizManager;
 	private GuiManager m_guiManager;
 	private Chapter m_chapter;
-	private ArrayList<Integer> m_questionOrder = new ArrayList<Integer>();
-	private Boolean m_showQuestionColor = false;
+	private ArrayList<Integer> m_questionOrder;
+	private int m_rightAnswerCount;
+	private Boolean m_hasAnswered;
 	
 	public PlayQuizAdapter(QuizManager quizManager, GuiManager guiManager) {
 		m_quizManager = quizManager;
@@ -56,7 +57,8 @@ public class PlayQuizAdapter implements AdapterInterface {
 	{
 		m_chapter = null;
 		m_questionOrder = new ArrayList<Integer>();
-		m_showQuestionColor = false;
+		m_hasAnswered = false;
+		m_rightAnswerCount = 0;
 	}
 	
 	public String getChapterName() {
@@ -71,17 +73,9 @@ public class PlayQuizAdapter implements AdapterInterface {
 		return "!!! CHAPTER IS NULL !!!";
 	}
 	
-	public Question getNextQuestion()
-	{
-		Question question = getQuestion();
-		
-		if(m_questionOrder.size() > 0) m_questionOrder.remove(0);
-		
-		return question;
-	}
-	
 	public Question getQuestion()
 	{
+		//System.out.println("QuestionOrder: " + m_questionOrder.size() + " Questions: " + m_chapter.getQuestionList().size());
 		if(m_questionOrder.size() > 0) 
 		{
 			int index = m_questionOrder.get(0);
@@ -111,22 +105,64 @@ public class PlayQuizAdapter implements AdapterInterface {
 	
 	public void answer(Option option)
 	{
-		String rightOrWrong = "WRONG";
-		if(option.getIsRight()) rightOrWrong = "RIGHT";
-		
-		System.out.println("\"" + option.getText() + "\" WAS THE " + rightOrWrong + " OPTION");
-		
-		m_showQuestionColor = true;
+		if(!m_hasAnswered)
+		{
+			String rightOrWrong;
+			if(option.getIsRight()) 
+			{
+				m_rightAnswerCount++;
+				rightOrWrong = "RIGHT";
+			}
+			else
+			{
+				rightOrWrong = "WRONG";
+			}
+			//System.out.println("\"" + option.getText() + "\" WAS THE " + rightOrWrong + " OPTION");
+			m_hasAnswered = true;
+		}
+		else
+		{
+			m_hasAnswered = false;
+			moveToNextQuestion();
+		}
 		
 		m_guiManager.refresh();
 		
-		//m_guiManager.loadPage(PageTypes.P_QUESTION_RESULT, option.getIsRight());
+		return;
+	}
+	
+	public void moveToNextQuestion()
+	{
+		if(m_questionOrder.size() > 1)
+		{
+			m_questionOrder.remove(0);
+		}
+		else
+		{
+			endChapter();
+		}
 		
+		return;
+	}
+	
+	private void endChapter()
+	{
+		m_guiManager.loadPage(PageTypes.P_QUIZ_END);
 		return;
 	}
 	
 	public boolean isShowColor()
 	{
-		return m_showQuestionColor;
+		return m_hasAnswered;
+	}
+	
+	public int getRightAnswerCount()
+	{
+		return m_rightAnswerCount;
+	}
+	
+	public int getTotalAnswerCount()
+	{
+		return m_chapter.getQuestionList().size();
 	}
 }
