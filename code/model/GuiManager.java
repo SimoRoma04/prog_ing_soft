@@ -63,7 +63,6 @@ public class GuiManager extends JFrame{
 		}
 	
 		m_view.refresh();
-		SwingUtilities.updateComponentTreeUI(this);
 		super.revalidate();
 		super.repaint();
 		super.setVisible(true);
