@@ -60,6 +60,9 @@ public class GuiManager extends JFrame{
 			case P_QUIZ:
 				m_view = new AnswerQuestion(m_guiManagerAdapter, m_quizAdapter);
 				break;
+			case P_RANDOM_QUIZ:
+				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter);
+				break;
 		}
 	
 		m_view.refresh();
