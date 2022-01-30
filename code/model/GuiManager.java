@@ -65,6 +65,11 @@ public class GuiManager extends JFrame{
 			case P_RANDOM_QUIZ:
 				m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter);
 				break;
+			case P_QUESTION_RESULT:
+				//m_view = new AnswerQuestion(m_guiManagerAdapter, m_playQuizAdapter);
+				break;
+			default:
+				System.out.println("Questo P_CODE non esiste");
 		}
 	
 		m_view.refresh();
