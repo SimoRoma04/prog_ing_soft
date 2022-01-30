@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -118,10 +121,28 @@ public class AnswerQuestion implements ViewInterface{
 		// Inizializzazione dell'ArrayList dei bottoni
 		m_buttons = new ArrayList<JButton>();
 		
+		
+		
 		// Creazione di un bottone per ogni domanda
-		for (Option o: m_playQuizAdapter.getQuestion().getOptions()) {
+		ArrayList<Option> optionList = m_playQuizAdapter.getQuestion().getOptions();
+		List<Integer> optionOrderList = new ArrayList<Integer>();
+		
+		for(int i = 0; i < optionList.size(); i++)
+		{
+			optionOrderList.add(i);
+		}
+		Collections.shuffle(optionOrderList);
+		
+		for(int i = 0; i<optionList.size(); i++) {
+			Option o = optionList.get(optionOrderList.get(i));
 			JButton temp = new JButton(o.getText());
-			temp.addActionListener(e -> System.out.println("prova pulsante" + o.getText()));  //al posto della stringa bisogna inserire il metodo che viene invocato
+			
+			if(m_playQuizAdapter.isShowColor())
+			{
+				temp.setBackground(o.getIsRight() ? Color.GREEN : Color.RED);
+			}
+			
+			temp.addActionListener(e -> m_playQuizAdapter.answer(o));  //al posto della stringa bisogna inserire il metodo che viene invocato
 			m_buttons.add(temp);
 		}
 		

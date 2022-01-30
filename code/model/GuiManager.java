@@ -24,7 +24,7 @@ public class GuiManager extends JFrame{
 		
 		m_guiManagerAdapter = new GuiManagerAdapter(this);
 		m_quizAdapter = new QuizAdapter(quizManager);
-		m_playQuizAdapter = new PlayQuizAdapter(quizManager);
+		m_playQuizAdapter = new PlayQuizAdapter(quizManager, this);
 		
 		loadPage(PageTypes.P_HOME, null, false);
 		
@@ -72,5 +72,26 @@ public class GuiManager extends JFrame{
 		super.repaint();
 		super.setVisible(true);
 		
+	}
+	
+	public void loadPage(PageTypes type) {
+		loadPage(type, null, false);
+	}
+	
+	public void loadPage(PageTypes type, String stringParam) {
+		loadPage(type, stringParam, false);
+	}
+	
+	public void loadPage(PageTypes type, Boolean boolParam) {
+		loadPage(type, null, boolParam);
+	}
+	
+	public void refresh() {
+		super.getContentPane().removeAll();
+		m_view.refresh();
+		super.revalidate();
+		super.repaint();
+		super.setVisible(true);
+		return;
 	}
 }
