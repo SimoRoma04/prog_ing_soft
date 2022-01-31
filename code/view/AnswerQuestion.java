@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import adapter.GuiManagerAdapter;
 import adapter.PlayQuizAdapter;
@@ -27,6 +26,7 @@ public class AnswerQuestion implements ViewInterface{
 	GuiManagerAdapter m_guiManagerAdapter;
 	PlayQuizAdapter m_playQuizAdapter;
 	ArrayList<JButton> m_buttons;
+	List<Integer> optionOrderList;
 	
 	public AnswerQuestion(GuiManagerAdapter guiManagerAdapter, PlayQuizAdapter playQuizAdapter) {
 		m_guiManagerAdapter = guiManagerAdapter;
@@ -58,7 +58,7 @@ public class AnswerQuestion implements ViewInterface{
 			panel.add(new JPanel());
 		}
 		
-		// DEBUGGING DA ELIMINARE
+
 		panel.get(0).setBackground(Color.red);
 		panel.get(1).setBackground(Color.green);
 		panel.get(2).setBackground(Color.yellow);
@@ -74,13 +74,11 @@ public class AnswerQuestion implements ViewInterface{
 		
 		
 		
+		// Costruzione del bottone per la domanda successiva
 		JButton nextQuestionButton = new JButton("<html>Next Question");
 		
 		nextQuestionButton.addActionListener(e -> m_playQuizAdapter.moveToNextQuestion());
 		nextQuestionButton.setPreferredSize(new Dimension(100, 200));
-		/*nextQuestionButton.setOpaque(false);
-		nextQuestionButton.setContentAreaFilled(false);
-		nextQuestionButton.setBorderPainted(false);*/
 		nextQuestionButton.setEnabled(false);
 		nextQuestionButton.setVisible(false);
 		
@@ -94,7 +92,6 @@ public class AnswerQuestion implements ViewInterface{
 		
 		
 		
-		//-----
 		//inserimento del testo della domanda dal riferimento del controller
 		JLabel jLabel = new JLabel(m_playQuizAdapter.getQuestion().getText());
 		
@@ -124,7 +121,6 @@ public class AnswerQuestion implements ViewInterface{
 		
 		panel.get(0).add(sup, BorderLayout.NORTH);
 		panel.get(0).add(inf, BorderLayout.SOUTH);
-		//-----
 		
 		
 		// Inserimento dell'immagine (se c'è)
@@ -147,26 +143,29 @@ public class AnswerQuestion implements ViewInterface{
 		
 		// Creazione di un bottone per ogni domanda
 		ArrayList<Option> optionList = m_playQuizAdapter.getQuestion().getOptions();
-		List<Integer> optionOrderList = new ArrayList<Integer>();
-		
-		for(int i = 0; i < optionList.size(); i++)
-		{
-			optionOrderList.add(i);
+	
+		// Mescola l'ordine delle opzioni solo se la domanda è nuova
+		if(!m_playQuizAdapter.isOptionSelected()) {
+			optionOrderList = new ArrayList<Integer>();
+			for(int i = 0; i < optionList.size(); i++)
+				optionOrderList.add(i);
+			Collections.shuffle(optionOrderList);
 		}
-		Collections.shuffle(optionOrderList);
 		
 		for(int i = 0; i<optionList.size(); i++) {
 			Option o = optionList.get(optionOrderList.get(i));
 			JButton temp = new JButton(o.getText());
 			
-			if(m_playQuizAdapter.isOptionSelected())
-			{
+			if(m_playQuizAdapter.isOptionSelected()) {
 				temp.setBackground(o.getIsRight() ? Color.GREEN : Color.RED);
 				temp.setOpaque(true);
+			} else {
+				temp.addActionListener(e -> m_playQuizAdapter.answer(o)); 
 			}
 			
-			temp.addActionListener(e -> m_playQuizAdapter.answer(o));  //al posto della stringa bisogna inserire il metodo che viene invocato
 			m_buttons.add(temp);
+			
+			
 		}
 		
 		
@@ -187,9 +186,5 @@ public class AnswerQuestion implements ViewInterface{
 
 	}
 	
-	public void disableButtons() {
-		for (JButton b: m_buttons) {
-			b.setEnabled(false);
-		}
-	}
+
 }
